@@ -59,6 +59,7 @@ nav ul a {
 
 nav ul li:hover {
 	background-color: #34506d;
+	cursor: pointer;
 }
 
 header {
@@ -73,11 +74,73 @@ header {
 content {
     background-color: #ffffffff;
     display: flex;
-    align-content: center;
     justify-content: center;
     flex-wrap: wrap;
+    flex-direction: column;
     flex-grow: 1;
 }
+
+.post.row {
+	display: flex;
+	margin: 0 1rem;
+	padding: 1.5rem 1.5rem;
+	border-top: 1px solid lightgrey;
+}
+
+.post.row .rating_bar {
+	display: flex;
+	margin-left: 0.75rem;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+}
+
+.post.row .img {
+	background-color: lightgrey;
+	margin-left: 0.75rem;
+	width: 7rem;
+	border-radius: 5px;
+}
+
+.post.row .info {
+	margin-left: 0.75rem;
+	padding: 0 1rem;
+	flex-grow: 1;
+}
+
+.post.row .info .title {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.post.row .info .preview {
+	max-width: 80%;
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.post.row .info .author {
+	color: #0099ff;
+	cursor: pointer;
+	width: fit-content;
+	width: -moz-fit-content;
+}
+
+
+.button {
+	cursor: pointer;
+}
+
+.upvote:hover {
+	color: #33cc33;
+}
+
+.downvote:hover {
+	color: #ff0000;
+}
+
 
 footer {
     background-color: #f4f4f4;
