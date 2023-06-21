@@ -166,9 +166,11 @@ content {
 }
 
 .post.row .img {
+	flex-shrink: 0;
 	background-color: lightgrey;
 	margin-left: 0.75rem;
-	width: 10rem;
+	width: 6rem;
+	height: 6rem;
 	border-radius: 5px;
 }
 
