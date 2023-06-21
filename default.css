@@ -1,13 +1,11 @@
-/*Colors #ef767a, #456990, #49beaa, #49dcb1, #eeb868*/
-
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root {
 	font-family: 'Open Sans', sans-serif;
-	--primary: #456990;
-	--secondary: #34506d;
-	--tertiary: #87b0dc;
-	--darktertiary: #3d6692;
+	--primary: #2B3990;
+	--secondary: #282f5b;
+	--tertiary: #456990;
+	--darktertiary: #34506d;
 	--accent: #d3d3d3;
 	--lightbody: #ffffff;
 	--lightaccent: #f4f4f4;
