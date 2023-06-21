@@ -11,6 +11,8 @@
 	--accent: #d3d3d3;
 	--lightbody: #ffffff;
 	--lightaccent: #f4f4f4;
+	--positive: #33cc33;
+	--negative: #ff0000;
 }
 
 a {
@@ -210,11 +212,19 @@ content {
 }
 
 .upvote:hover {
-	color: #33cc33;
+	color: var(--positive);
 }
 
 .downvote:hover {
-	color: #ff0000;
+	color: var(--negative);
+}
+
+.selected-upvote {
+	color: var(--positive);
+}
+
+.selected-downvote {
+	color: var(--negative);
 }
 
 
