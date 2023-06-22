@@ -35,10 +35,13 @@ nav {
 
 nav .logo {
     display: inline-block;
-    font-size: 2rem;
-    font-weight: 800;
-    letter-spacing: .1rem;
+    height: 3rem;
+    width: 12rem;
     margin: 0 1rem;
+    margin-top: 0.5rem;
+    background: url('logo/white_logo_extra.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 nav ul {
