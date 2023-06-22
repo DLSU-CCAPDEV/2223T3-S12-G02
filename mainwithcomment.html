@@ -10,15 +10,18 @@
 			var votedPosts = {};
 			var votedComments = {};
 
-			function createPost(pTitle, pContent, pAuthor) {
+			function createPost(pTitle, pContent, pAuthor, pID) {
 				var postContainer = $('.post_container');
 
-				var postId = Date.now();
+				// Set to generated pID
+				if (typeof pID === "undefined" ) {
+					pID = Date.now();
+				}
 
 				// Create the post row element
 				var postRow = $('<div>', {
 					class: 'post row',
-					id: postId
+					id: pID
 				});
 				  
 				// Create the rating bar element
@@ -29,21 +32,21 @@
 				// TODO: votes should only work once per user
 				// Create the upvote button
 				var upvoteButton = $('<div>', {
-					id: 'upvote-' + postId,
+					id: 'upvote-' + pID,
 					class: 'button upvote',
 					text: '⮝'
 				});
 				  
 				// Create the counter element
 				var counter = $('<div>', {
-					id: 'counter-' + postId,
+					id: 'counter-' + pID,
 					class: 'counter',
 					text: '0'
 				});
 
 				// Create the downvote button
 				var downvoteButton = $('<div>', {
-					id: 'downvote-' + postId,
+					id: 'downvote-' + pID,
 					class: 'button downvote',
 					text: '⮟'
 				});
@@ -96,11 +99,11 @@
 				postContainer.append(postRow);
 
 				upvoteButton.on('click', function() {
-					vote(postId, 1);
+					vote(pID, 1);
 				});
 
 				downvoteButton.on('click', function() {
-					vote(postId, -1);
+					vote(pID, -1);
 				});
 			}
 
@@ -241,8 +244,8 @@
 
 			// Dummy Posts
 			// Since it uses time as unique ID, I had to delay each post
-	setTimeout(function() {
-				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`);
+			setTimeout(function() {
+				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`, `1624197373745`);
 			},100);
 			setTimeout(function() {
 				createPost(`Movie Recommendations`,`Hey there! I'm a big movie enthusiast and I thought it would be great to share some of my favorite films. Recently, I watched "Inception" and "The Shawshank Redemption," and both blew my mind! What are some of your must-watch movies? Let's start a movie recommendation thread and discover some hidden gems.`,`@DudeMovies`);
