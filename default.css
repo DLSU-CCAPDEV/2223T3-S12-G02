@@ -293,3 +293,70 @@ footer {
 	resize: none;
 	overflow: hidden;
 }
+
+/* profile editor css */
+
+.profile_editor_body {
+	background-color: var(--lightaccent);
+}
+
+.editors {
+	background-color: var(--accent);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.user_editor {
+	background-color: var(--lightaccent);
+	width: 540px;
+	height: 600px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.account_editor {
+	background-color: var(--lightaccent);
+	width: 540px;
+	height: 600px;
+	padding: 10px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.save_button {
+	background-color: var(--primary);
+	color: white;
+	width: 60px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.change_image_button {
+	background-color: var(--primary);
+	color: white;
+	width: 150px;
+	height: 30px;
+	padding-top: 5px;
+}
+
+.editor_body {
+	background-color: var(--accent);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.profile_input {
+	border: none;
+	border-radius: 10px;
+}
+
+.description_input {
+	border: none;
+	border-radius: 10px;
+	height: 140px;
+	resize: none;
+}
