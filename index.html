@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="default.css">
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
+	<script src="main.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#pSubmit').on('click', pPost);
+
+			// Dummy Posts
+			// Since it uses time as unique ID, I had to delay each post
+			setTimeout(function() {
+				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`);
+			},100);
+			setTimeout(function() {
+				createPost(`Movie Recommendations`,`Hey there! I'm a big movie enthusiast and I thought it would be great to share some of my favorite films. Recently, I watched "Inception" and "The Shawshank Redemption," and both blew my mind! What are some of your must-watch movies? Let's start a movie recommendation thread and discover some hidden gems.`,`@DudeMovies`);
+			},200);
+			setTimeout(function() {
+				createPost(`Book Club Announcement`,`Calling all book lovers! I'm thrilled to announce the launch of our forum's book club. Our first book for discussion is "The Great Gatsby" by F. Scott Fitzgerald. If you're interested in participating, grab a copy of the book and join us in the dedicated book club thread. Looking forward to lively discussions and hearing your thoughts on this literary classic!`,`@Bookie22`);
+			},300);
+			setTimeout(function() {
+			createPost(`Fitness Tips for Beginners`,`Hey everyone! Are you new to the world of fitness and looking for some guidance? As someone who has been on a fitness journey for a while, I'd love to offer some tips and advice for beginners. From setting realistic goals to finding a workout routine that suits you, let's share our experiences and help each other stay motivated on our fitness quests.`,`@JoeSwanson`);
+			},400);
+			setTimeout(function() {
+			createPost(`Traveling on a Budget`,`Greetings, fellow adventurers! Traveling doesn't have to break the bank, and I'm here to prove it. Let's discuss budget-friendly destinations, tips for finding cheap flights, and affordable accommodation options. Whether you're a seasoned traveler or planning your first trip, join the conversation and let's explore the world without emptying our wallets.`,`@LoneWanderer`);
+			},500);
+
+		});
+	</script>
+	<title>ThreadTalk.™ — Speak your mind</title>
+</head>
+<body>
+	<nav>
+		<a href="home.html"><div class="logo"></div></a>
+		<ul>
+			<li><a href="home.html">Home</a></li>
+			<li><a href="search.html">Search</a></li>
+			<li><a href="profile.html">My Profile</a></li>
+			<li><a href="login.html">Login</a></li>
+		</ul>
+	</nav>
+	<header>
+		<div class="post_form">
+			<form>
+				<input type="text" name="pTitle" id="pTitle" placeholder="Thread Title">
+				<textarea name="pContent" id="pContent" placeholder="Write a Thread"></textarea>
+				<input type="button" name="pSubmit" id="pSubmit" value="Post">
+			</form>
+		</div>
+	</header>
+	<content>
+		<div class="post_container">
+		</div>
+	</content>
+	<footer>ThreadTalk 2023</footer>
+</body>
+</html>
