@@ -77,11 +77,17 @@ function createPost(pTitle, pContent, pAuthor) {
 
 	text.append(title, preview);
 
-	// TODO: link this to author page when that is implemented
- 	info.append(link.append(text), $('<div>', {
+	var author = $('<a>', {
+		href: 'profile.html'
+	});
+
+	author.append($('<div>', {
 		class: 'author',
 		text: pAuthor
 	}));
+
+	// TODO: link this to author page when that is implemented
+ 	info.append(link.append(text), author);
 
 	postRow.append(ratingBar, img, info);
 

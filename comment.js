@@ -47,15 +47,16 @@
             }
 
             function addCommentsToPost(postId, comments) {
-                var postContainer = $('#' + postId);
+                var postContainer = $('.comment_container');
                 var commentList = $('<ul>', {
                     class: 'comments-list'
                 });
+                var comment = createCommentElement(comments);
 
-                comments.forEach(function(comment) {
-                    var commentItem = createCommentElement(comment);
-                    commentList.append(commentItem);
-                });
+                // comments.forEach(function(comment) {
+                //     var commentItem = createCommentElement(comment);
+                //     commentList.append(commentItem);
+                // });
 
-                postContainer.append(commentList);
+                postContainer.append(comment);
             }
