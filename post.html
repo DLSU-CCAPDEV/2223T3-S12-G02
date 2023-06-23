@@ -9,12 +9,14 @@
 	<script src="comment.js"></script>
 	<script>
 		$(document).ready(function () {
+			$('#pSubmit').on('click', pComment);
+
 			// Dummy Post
 			setTimeout(function() {
 				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`);
 			},100);
 
-			addCommentsToPost(0, `Foo.Bar`);
+			
 		});
 	</script>
 	<style>
