@@ -1,0 +1,114 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0px;
+    background-color: lightblue;
+    overflow: hidden;
+  }
+
+  a.icon {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    margin-top: 80px;
+    font-size: 35px;
+    opacity: 0.4;
+    padding-top: 5px;
+    transition: 0.2s linear;
+    color: white;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  a.icon:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.90);
+    border-radius: 10px;
+  }
+
+  .container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+  }
+
+  .login_container {
+    align-items: center;
+    position: absolute;
+    width: 350px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    transition: 0.1s linear;
+  }
+
+  .icon {
+    display: flex;
+    margin: auto;
+    height: 45px;
+    width: 50px;
+    position: relative;
+  }
+
+  p {
+    text-align: center;
+    color: rgb(94, 93, 93);
+  }
+
+  .login_container h2 {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .login_container input[type="text"],
+  .login_container input[type="password"] {
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid grey;
+  }
+
+  .login_container input[type="submit"] {
+    margin-top: 10px;
+    font-weight: bolder;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .picture {
+    display: none;
+  }
+
+  .login_container input[type="submit"]:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+
+  @media (min-width: 900px) {
+    .login_container {
+      transition: 0.1s linear;
+      margin-right: 15vw;
+      margin-left: 60vw;
+    }
+
+    .icon {
+      display: none;
+    }
+
+    .picture {
+      display: flex;
+      height: 20vw;
+      padding-left: 20vw;
+      padding-right: 60vw;
+    }
+
+  }
