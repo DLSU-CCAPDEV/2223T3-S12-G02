@@ -1,12 +1,10 @@
 function createCommentElement(author, content) {
-
     var commentId = 'comment-' + Date.now();
 
     // Create comment element
     var comment = $('<div>', {
         class: 'comment row',
         id: commentId
-
     });
 
     var ratingBar = $('<div>', {
@@ -77,7 +75,10 @@ function createCommentElement(author, content) {
         vote(commentId, -1);
     });
 
-};
+    deleteButton.on('click', function() {
+        $('.comment.row').filter('#' + commentId).remove();
+    });
+}
 
 function pPostComment(author) {
     var content = $('#pComment').val();
