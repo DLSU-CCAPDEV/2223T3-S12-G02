@@ -9,14 +9,18 @@
 	<script src="comment.js"></script>
 	<script>
 		$(document).ready(function () {
-			$('#pSubmit').on('click', pComment);
+			$('#pSubmit').on('click', pPostComment);
 
 			// Dummy Post
 			setTimeout(function() {
 				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`);
 			},100);
 
-			
+			setTimeout(createCommentElement('@Steeve', 'Testing the Comments'), 200);
+			setTimeout(createCommentElement('@JoeSwanson', 'Very Cool Post'), 300);
+			setTimeout(createCommentElement('@Steeve', 'I would agree as well'), 400);
+			setTimeout(createCommentElement('@LoneWanderer', 'Time to reach out then!'), 500);
+			setTimeout(createCommentElement('@Amogus', 'ඞ'), 600);
 		});
 	</script>
 	<style>
@@ -49,17 +53,6 @@
 	</header>
 	<content>
 		<div class="comment_container">
-			<div class="comment row">
-				<div class="rating_bar">
-					<div class="button upvote">⮝</div>
-					<div class="counter">0</div>
-					<div class="button downvote">⮟</div>
-				</div>
-				<div class="info">
-					<div class="text"> AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa </div>
-					<div class="author">@Foo.Bar</div> <div class="tools"><button class="edit-comment">Edit</button><button class="delete-comment">Delete</button></div>
-				</div>
-			</div>
 		</div>
 	</content>
 	<footer>ThreadTalk 2023</footer>

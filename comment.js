@@ -1,149 +1,87 @@
-$(document).ready(function() {
-  // Create comment element
-  var comment = $('<div>', {
-    class: 'comment row'
-  });
+function createCommentElement(author, content) {
 
-  var ratingBar = $('<div>', {
-    class: 'rating_bar'
-  });
+    var commentId = 'comment-' + Date.now();
 
-  var upvoteButton = $('<div>', {
-    class: 'button upvote',
-    text: '⮝'
-  });
+    // Create comment element
+    var comment = $('<div>', {
+        class: 'comment row',
+        id: commentId
 
-  var counter = $('<div>', {
-    class: 'counter',
-    text: '0'
-  });
+    });
 
-  var downvoteButton = $('<div>', {
-    class: 'button downvote',
-    text: '⮟'
-  });
+    var ratingBar = $('<div>', {
+        class: 'rating_bar'
+    });
 
-  ratingBar.append(upvoteButton, counter, downvoteButton);
+    var upvoteButton = $('<div>', {
+        class: 'button upvote',
+        text: '⮝',
+        id: 'upvote-' + commentId
+    });
 
- 
-  var info = $('<div>', {
-    class: 'info'
-  });
+    var counter = $('<div>', {
+        class: 'counter',
+        text: '0',
+        id: 'counter-' + commentId
+    });
 
-  
-  var text = $('<div>', {
-    class: 'text',
-    text: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa'
-  });
+    var downvoteButton = $('<div>', {
+        class: 'button downvote',
+        text: '⮟',
+        id: 'downvote-' + commentId
+    });
 
+    ratingBar.append(upvoteButton, counter, downvoteButton);
 
-  var author = $('<div>', {
-    class: 'author',
-    text: '@Foo.Bar'
-  });
+    var info = $('<div>', {
+        class: 'info'
+    });
 
- 
-  var tools = $('<div>', {
-    class: 'tools'
-  });
+    var text = $('<div>', {
+        class: 'text',
+        text: content
+    });
 
+    var author = $('<div>', {
+        class: 'author',
+        text: author
+    });
 
-  var editButton = $('<button>', {
-    class: 'edit-comment',
-    text: 'Edit'
-  });
+    var tools = $('<div>', {
+        class: 'tools'
+    });
 
- 
-  var deleteButton = $('<button>', {
-    class: 'delete-comment',
-    text: 'Delete'
-  });
+    var editButton = $('<button>', {
+        class: 'edit-comment',
+        text: 'Edit'
+    });
 
-  tools.append(editButton, deleteButton);
+    var deleteButton = $('<button>', {
+        class: 'delete-comment',
+        text: 'Delete'
+    });
 
-  
-  info.append(text, author, tools);
+    tools.append(editButton, deleteButton);
 
-  
-  comment.append(ratingBar, info);
+    info.append(text, author, tools);
 
- 
-  $('.comment_container').append(comment);
-});
+    comment.append(ratingBar, info);
 
+    $('.comment_container').append(comment);
 
+    upvoteButton.on('click', function() {
+        vote(commentId, 1);
+    });
 
+    downvoteButton.on('click', function() {
+        vote(commentId, -1);
+    });
 
+};
 
+function pPostComment(author) {
+    var content = $('#pComment').val();
+    author = '@' + 'Foo.Bar';
 
-
-
-
-
-
-
-
-/*  function createCommentElement(comment) {
-                var commentItem = $('<li>', {
-                    class: 'comment'
-                });
-
-                commentItem.append($('<div>', {
-                    class: 'content',
-                    html: '<strong>' + comment.user + '</strong>: ' + comment.content
-                }));
-
-                var actions = $('<div>', {
-                    class: 'actions'
-                });
-
-                var editButton = $('<button>', {
-                    class: 'edit-comment',
-                    text: 'Edit'
-                });
-
-                var deleteButton = $('<button>', {
-                    class: 'delete-comment',
-                    text: 'Delete'
-                });
-
-                var upvoteButton = $('<button>', {
-                    id: 'upvote-' + comment.commentId,
-                    class: 'upvote-comment',
-                    text: 'Upvote'
-                });
-
-                var downvoteButton = $('<button>', {
-                    id: 'downvote-' + comment.commentId,
-                    class: 'downvote-comment',
-                    text: 'Downvote'
-                });
-
-                var counter = $('<span>', {
-                    id: 'counter-' + comment.commentId,
-                    class: 'votes',
-                    text: '0'
-                 });
-
-                actions.append(editButton, deleteButton, upvoteButton, downvoteButton, counter);
-                commentItem.append(actions);
-
-                return commentItem;
-            }
-
-            function addCommentsToPost(postId, comments) {
-                var postContainer = $('.comment_container');
-                var commentList = $('<ul>', {
-                    class: 'comments-list'
-                });
-                var comment = createCommentElement(comments);
-
-                // comments.forEach(function(comment) {
-                //     var commentItem = createCommentElement(comment);
-                //     commentList.append(commentItem);
-                // });
-
-                postContainer.append(comment);
-            }
-
-*/
+    createCommentElement(author, content);
+}
