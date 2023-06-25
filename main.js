@@ -86,8 +86,24 @@ function createPost(pTitle, pContent, pAuthor) {
 		text: pAuthor
 	}));
 
+    var tools = $('<div>', {
+        class: 'tools'
+    });
+
+    var editButton = $('<button>', {
+        class: 'edit-comment',
+        text: 'Edit'
+    });
+
+    var deleteButton = $('<button>', {
+        class: 'delete-comment',
+        text: 'Delete'
+    });
+
+    tools.append(editButton, deleteButton);
+
 	// TODO: link this to author page when that is implemented
- 	info.append(link.append(text), author);
+ 	info.append(link.append(text), author, tools);
 
 	postRow.append(ratingBar, img, info);
 
@@ -100,6 +116,10 @@ function createPost(pTitle, pContent, pAuthor) {
 	downvoteButton.on('click', function() {
 		vote(postId, -1);
 	});
+
+    deleteButton.on('click', function() {
+        deleteButton.closest('.post.row').remove();
+    });
 
 };
 

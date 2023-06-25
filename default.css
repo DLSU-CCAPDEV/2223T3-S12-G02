@@ -401,7 +401,7 @@ footer {
 	width: -moz-fit-content;
 }
 
-.comment.row .tools button{
+.tools button{
 	border: none;
     background: none;
     font-family: 'Open Sans';
@@ -410,6 +410,10 @@ footer {
     cursor: pointer;
 }
 
-.comment.row .tools button:last-child {
+.tools button:last-child {
 	border-right: none;
+}
+
+header .post.row .tools {
+	display: none;
 }
