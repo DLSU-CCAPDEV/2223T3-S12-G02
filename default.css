@@ -62,6 +62,8 @@ nav ul li {
 }
 
 nav ul a {
+	display: flex;
+	flex-direction: column;
 	color: #FFF;
 	text-decoration: none;
 	cursor: pointer;
