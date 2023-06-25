@@ -76,7 +76,7 @@ function createCommentElement(author, content) {
     });
 
     deleteButton.on('click', function() {
-        $('.comment.row').filter('#' + commentId).remove();
+        deleteButton.closest('.comment.row').remove();
     });
 }
 

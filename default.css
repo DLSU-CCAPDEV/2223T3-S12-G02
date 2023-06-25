@@ -400,3 +400,16 @@ footer {
 	width: fit-content;
 	width: -moz-fit-content;
 }
+
+.comment.row .tools button{
+	border: none;
+    background: none;
+    font-family: 'Open Sans';
+    color: #0099ff;
+    border-right: 1px solid var(--accent);
+    cursor: pointer;
+}
+
+.comment.row .tools button:last-child {
+	border-right: none;
+}
