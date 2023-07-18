@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ThreadTalk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="login_register.css">
+</head>
+
+<body>
+  <a class="icon button" href="home.html"><i class="fa fa-home"></i></a>
+  <div class="container">
+    <div class="picture"><img src="logo/blue_logo.png" alt="logo"></div>
+    <div class="login_container">
+      <div class="icon"><img src="logo/blue_icon.png" alt="icon"></div>
+      <form method="post" action="home_logged.html">
+        <h2>Sign in</h2>
+        <div>
+          <label for="username">Username</label><br>
+          <input type="text" id="username" name="username" required><br>
+        </div>
+        <div>
+          <label for="user_pass">Password</label><br>
+          <input type="password" id="user_pass" name="user_pass" required><br>
+        </div>
+        <div>
+          <label for="remember">
+            <input type="checkbox" id="remember">
+            Stay logged in
+          </label>
+        </div>
+        <input type="submit" onclick="login()" value="Login">
+        <p>Don't have an account? <a href="register.html" target="_self">Sign up</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

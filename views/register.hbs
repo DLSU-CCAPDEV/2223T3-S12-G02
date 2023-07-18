@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ThreadTalk</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="login_register.css">
+</head>
+
+<body>
+  <a class="icon button" href="home.html"><i class="fa fa-home"></i></a>
+  <div class="container">
+    <div class="picture"><img src="logo/blue_logo.png" alt="logo"></div>
+    <div class="login_container">
+      <div class="icon"><img src="logo/blue_logo.png" alt="icon"></div>
+      <form>
+        <h2>Create an account</h2>
+        <label for="username">Username</label><br>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="userpass">Password</label><br>
+        <input type="password" id="userpass" name="userpass" required><br>
+
+        <label for="confirmpass">Confirm Password</label><br>
+        <input type="password" id="confirmpass" name="confirmpass" required><br>
+
+        <label for="accept">
+          <input type="checkbox" id="accept" required>
+          I accept User Agreement and Privacy Policy.
+        </label>
+
+        <input type="submit" onclick="register()" value="Sign up">
+        <p>Already have an account? <a href="login.html" target="_self">Sign in</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
