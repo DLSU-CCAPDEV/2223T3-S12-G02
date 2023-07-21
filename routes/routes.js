@@ -7,7 +7,7 @@ const app = express();
 app.get(`/`, controller.getRoot);
 app.get(`/home`, controller.redirectRoot);
 
-app.get(`/home_logged`, controller.getRootLogged);
+app.get(`/home_logged`, controller.getRoot);
 
 app.get(`/search`, controller.getSearch);
 

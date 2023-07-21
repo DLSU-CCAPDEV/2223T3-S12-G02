@@ -38,11 +38,16 @@
 		<ul>
 			<li><a href="home">Home</a></li>
 			<li><a href="search">Search</a></li>
-			<li><a href="profile">My Profile<span class="user name">@Steeve</span></a></li>
+			{{#if isLoggedIn}}
+			<li><a href="profile">My Profile<span class="user name">@{{username}}</span></a></li>
 			<li><a href="login">Log Out</a></li>
+			{{else}}
+			<li><a href="login">Login</a></li>
+			{{/if}}
 		</ul>
 	</nav>
 	<header>
+		{{#if isLoggedIn}}
 		<div class="post_form">
 			<form>
 				<input type="text" name="pTitle" id="pTitle" placeholder="Thread Title">
@@ -50,6 +55,7 @@
 				<input type="button" name="pSubmit" id="pSubmit" value="Post">
 			</form>
 		</div>
+		{{/if}}
 	</header>
 	<content>
 		<div class="post_container">

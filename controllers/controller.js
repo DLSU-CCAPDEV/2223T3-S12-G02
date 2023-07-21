@@ -1,16 +1,18 @@
 const controller = {
 
+    /* Note:
+        home_guest.hbs is probably not needed anymore.
+    */
     getRoot: function(req, res) {
-        res.render(`home_guest`);
+        const data = {
+            isLoggedIn: false,
+            username: ``
+        }
+        res.render(`home`, data);
     },
 
     redirectRoot: function(req, res) {
         res.redirect(`/`);
-    },
-
-    // TODO: check if user logged in
-    getRootLogged: function(req, res) {
-        res.render(`home`);
     },
 
     getSearch: function(req, res) {
