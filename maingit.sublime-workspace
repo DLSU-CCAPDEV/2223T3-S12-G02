@@ -160,6 +160,10 @@
 				"Sublime Merge: Open Repository"
 			],
 			[
+				"repositor",
+				"Sublime Merge: Open Repository"
+			],
+			[
 				"reposity",
 				"Package Control: Add Repository"
 			],
@@ -257,9 +261,17 @@
 	},
 	"expanded_folders":
 	[
+		"/F/CS/2223T3-S12-G02"
 	],
 	"file_history":
 	[
+		"/F/CS/2223T3-S12-G02/routes/routes.js",
+		"/E/Users/Duck/Desktop/express-example-login/index.js",
+		"/E/Instances/SSE/mods/Untarnished UI 1.1.6/interface/deardiary_dm/config.txt",
+		"/F/CS/2223T3-S12-G02/README.md",
+		"/F/CS/2223T3-S12-G02/index.js",
+		"/F/CS/2223T3-S12-G02/controllers/controller.js",
+		"/E/Users/Duck/Desktop/express-example-login/.env",
 		"/E/Users/Duck/Desktop/28077/_conditions.txt",
 		"/F/Instances/SSE/mods/(SGC) Normal Attack Stamina Consumption - NASC/scripts/source/NASC_Spell.psc",
 		"/F/Programs/tools/hkanno64-001/annotations/2hm_sprintforwardsword.txt",
@@ -355,8 +367,6 @@
 		"/F/CS/2223T3-S12-G02/comment.js",
 		"/F/CS/2223T3-S12-G02/views/home.hbs",
 		"/F/CS/2223T3-S12-G02/public/css/default.css",
-		"/F/CS/2223T3-S12-G02/controllers/controller.js",
-		"/F/CS/2223T3-S12-G02/index.js",
 		"/F/CS/NodeJS/index.js",
 		"/F/CS/2223T3-S12-G02/.env",
 		"/F/CS/NodeJS/package.json",
@@ -382,12 +392,7 @@
 		"/E/Windows/TMP/7zOC5C79D18/Misc.txt",
 		"/E/Windows/TMP/7zOC5CE4328/Character Creation_regex.txt",
 		"/E/Windows/TMP/7zOC5CA4708/UI.txt",
-		"/E/Windows/TMP/7zOC5C6B928/Character Maker Subs.txt",
-		"/E/Windows/TMP/7zOC5C9A748/Character Creation.txt",
-		"/E/Windows/TMP/7zO4FCD629A/Items.txt",
-		"/E/Windows/TMP/7zO4FCFE6AA/UI_resizer.txt",
-		"/E/Windows/TMP/7zO4FCEAE47/UI.txt",
-		"/E/Windows/TMP/7zO4FC13067/UI.txt"
+		"/E/Windows/TMP/7zOC5C6B928/Character Maker Subs.txt"
 	],
 	"find":
 	{
@@ -405,6 +410,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"lock",
 			"idle",
 			"perk",
 			"filter",
@@ -526,7 +532,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 160.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

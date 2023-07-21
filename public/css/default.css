@@ -39,7 +39,7 @@ nav .logo {
     width: 12rem;
     margin: 0 1rem;
     margin-top: 0.5rem;
-    background: url('logo/white_logo_extra.png');
+    background: url('../logo/white_logo_extra.png');
     background-size: contain;
     background-repeat: no-repeat;
 }

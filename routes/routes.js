@@ -4,6 +4,20 @@ const controller = require('../controllers/controller.js');
 
 const app = express();
 
+app.get(`/`, controller.getRoot);
+app.get(`/home`, controller.redirectRoot);
+
+app.get(`/home_logged`, controller.getRootLogged);
+
+app.get(`/search`, controller.getSearch);
+
+app.get(`/login`, controller.getLogin);
+
+app.get(`/register`, controller.getRegister);
+
+app.get(`/post`, controller.getPost);
+
+app.get(`/profile`, controller.getProfile);
 
 /* // Reference from original code //
 
