@@ -4,16 +4,16 @@
 <head>
   <title>ThreadTalk</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="login_register.css">
+  <link rel="stylesheet" href="../css/login_register.css">
 </head>
 
 <body>
-  <a class="icon button" href="home.html"><i class="fa fa-home"></i></a>
+  <a class="icon button" href="home"><i class="fa fa-home"></i></a>
   <div class="container">
-    <div class="picture"><img src="logo/blue_logo.png" alt="logo"></div>
+    <div class="picture"><img src="../logo/blue_logo.png" alt="logo"></div>
     <div class="login_container">
-      <div class="icon"><img src="logo/blue_icon.png" alt="icon"></div>
-      <form method="post" action="home_logged.html">
+      <div class="icon"><img src="../logo/blue_icon.png" alt="icon"></div>
+      <form method="get" action="/home_logged">
         <h2>Sign in</h2>
         <div>
           <label for="username">Username</label><br>
@@ -30,7 +30,7 @@
           </label>
         </div>
         <input type="submit" onclick="login()" value="Login">
-        <p>Don't have an account? <a href="register.html" target="_self">Sign up</a></p>
+        <p>Don't have an account? <a href="register" target="_self">Sign up</a></p>
       </form>
     </div>
   </div>
