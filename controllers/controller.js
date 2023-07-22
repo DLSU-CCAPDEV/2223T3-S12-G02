@@ -1,3 +1,5 @@
+const db = require('../models/db.js');
+
 const controller = {
 
     /* Note:
@@ -6,7 +8,7 @@ const controller = {
     getRoot: function(req, res) {
         const data = {
             isLoggedIn: false,
-            username: ``
+            username: `banana`
         }
         res.render(`home`, data);
     },
@@ -25,6 +27,11 @@ const controller = {
 
     getRegister: function(req, res) {
         res.render(`register`);
+    },
+
+    // Register Logic Here
+    postRegister: function(req, res) {
+        res.redirect(`/`);
     },
 
     getPost: function(req, res) {

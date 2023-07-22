@@ -246,8 +246,6 @@ footer {
 
 .profile-body {
 	background-color: var(--lightaccent);
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .profile-editor {

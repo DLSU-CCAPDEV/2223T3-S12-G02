@@ -15,6 +15,8 @@ app.get(`/login`, controller.getLogin);
 
 app.get(`/register`, controller.getRegister);
 
+app.post(`/register`, controller.postRegister);
+
 app.get(`/post`, controller.getPost);
 
 app.get(`/profile`, controller.getProfile);
