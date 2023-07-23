@@ -4,6 +4,7 @@ const controller = require('../controllers/controller.js');
 
 const homeController = require('../controllers/homeController.js');
 const postController = require('../controllers/postController.js');
+const voteController = require('../controllers/voteController.js');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.get(`/home`, homeController.refreshFeed);
 app.post(`/submitPost`, homeController.submitPost);
 
 app.get(`/post/:pID`, postController.getPost);
+app.post(`/update-vote`, voteController.updatePostVote);
 
 app.get(`/home_logged`, controller.getRoot);
 

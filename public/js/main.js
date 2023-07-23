@@ -146,11 +146,22 @@ function vote(postId, value) {
 	var counter = $('#counter-' + postId);
 	var currentCount = parseInt(counter.text());
 
-	// Calculate the new vote count
 	var newCount = currentCount - currentVote + value;
 
-	// Update the vote count
-	counter.text(newCount);
+	$.ajax({
+        type: 'POST',
+        url: '/update-vote',
+        data: {
+            postId: postId,
+            value: newCount
+        },
+        success: function (response) {
+			counter.text(newCount);
+        },
+        error: function (xhr, status, error) {
+            console.error('Error updating vote:', error);
+        }
+    });
 }
 
 // TODO: Replace pAuthor with one that reads the current user.
