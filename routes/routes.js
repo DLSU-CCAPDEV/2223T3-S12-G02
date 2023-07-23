@@ -37,4 +37,10 @@ app.post(`/checkAcct`, controller.checkAcct);
 
 */
 
+app.get('/post/:postId/comments', commentController.getCommentsForPost);
+app.post('/post/:postId/comments', commentController.addCommentToPost);
+app.post('/comments/:commentId/likes', commentController.updateCommentLikes);
+app.delete('/comments/:commentId', commentController.deleteComment);
+
+
 module.exports = app;
