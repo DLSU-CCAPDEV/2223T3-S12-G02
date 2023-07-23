@@ -25,10 +25,18 @@ var PostSchema = new mongoose.Schema({
         required: true
     },
     postLikes: {
+    type: Number,
+    required: true,
+  },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }], // Array of comment references
+});
+   /* 
+    postLikes: {
         type: Number,
         required: true
     }
 
 });
+*/
 
 module.exports = mongoose.model('Post', PostSchema);
