@@ -20,8 +20,10 @@ var CommentSchema = new mongoose.Schema({
     commentLikes: {
         type: Number,
         required: true
-    }
-
+    },
+    
+    postID: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' }, 
 });
+
 
 module.exports = mongoose.model('Comment', CommentSchema);
