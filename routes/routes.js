@@ -31,6 +31,8 @@ app.post(`/register`, controller.postRegister);
 
 app.get(`/profile`, controller.getProfile);
 
+app.get(`/profile/:userName`, profileController.getPosts); 
+
 /* // Reference from original code //
 
 app.get(`/`, controller.getRoot);
