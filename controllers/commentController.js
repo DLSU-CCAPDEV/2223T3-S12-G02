@@ -2,10 +2,10 @@ const db = require('../models/db.js');
 const Comment = require('../models/CommentModel.js');
 
 const commentController = {
-  // Method to retrieve all comments for a specific post
+
   getCommentsForPost: async function (req, res) {
     const postId = req.params.postId;
-    // Query to fetch comments related to the given postId
+   
     const query = { postID: postId };
     const projection = 'commentID commentContent commentAuthor commentLikes';
     const comments = await db.findMany(Comment, query, projection);
@@ -16,8 +16,8 @@ const commentController = {
   addCommentToPost: async function (req, res) {
     const postId = req.body.postId;
     const commentContent = req.body.commentContent;
-    const commentAuthor = 'Foo.Bar'; // Replace with the actual author of the comment
-    const commentLikes = 0; // Initialize likes to 0 for a new comment
+    const commentAuthor = 'Foo.Bar'; 
+    const commentLikes = 0; /
     const commentData = {
       postID: postId,
       commentContent: commentContent,
@@ -38,7 +38,7 @@ const commentController = {
     res.json({ updatedCount: value });
   },
 
-  // Method to delete a comment
+  
   deleteComment: async function (req, res) {
     const commentId = req.body.commentId;
     const query = { commentID: commentId };
