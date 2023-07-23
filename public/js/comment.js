@@ -76,7 +76,15 @@ function createCommentElement(author, content) {
     });
 
     deleteButton.on('click', function() {
-        deleteButton.closest('.comment.row').remove();
+      //  deleteButton.closest('.comment.row').remove();
+        db.deleteOne('comments', { _id: commentId }, (err, deletedComment) => {
+      if (err) {
+        console.error('Error deleting comment:', err.message);
+      } else {
+        console.log('Comment deleted:', deletedComment);
+        comment.remove();
+      }
+    });
     });
 }
 
@@ -86,3 +94,21 @@ function pPostComment(author) {
 
     createCommentElement(author, content);
 }
+// Saves the comment to the database using the insertOne (from db.js)
+  const comment = {
+    commentContent: content,
+    commentAuthor: author,
+   // commentLikes: 0,
+  };
+
+  db.insertOne('comments', comment, (err, insertedComment) => {
+    if (err) {
+      console.error('Error saving comment:', err.message);
+    } else {
+      console.log('Comment saved:', insertedComment);
+    }
+  });
+}
+
+
+
