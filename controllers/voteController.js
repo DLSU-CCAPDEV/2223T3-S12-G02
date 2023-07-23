@@ -4,12 +4,16 @@ const Comment = require('../models/CommentModel.js');
 
 const voteController = {
     updatePostVote: async function(req, res) {
+        var ID = req.body.postId;
         var value = req.body.value;
-        var query = {
-            postID: req.body.postId
-        }
 
-        await db.updateOne(Post, query, {postLikes: value});
+        if (await db.findOne(Post, {postID: ID}, `postID`) != null ) {
+
+            await db.updateOne(Post, {postID: ID}, {postLikes: value});
+        }
+        else if (await db.findOne(Comment, {commentID: ID}, `commentID`) != null ) {
+            await db.updateOne(Comment, {commentID: ID}, {commentLikes: value});
+        }
         res.json({updatedCount: value});
     }
 }

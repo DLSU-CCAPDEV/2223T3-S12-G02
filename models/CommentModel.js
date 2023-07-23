@@ -8,7 +8,9 @@
 var mongoose = require('mongoose');
 
 var CommentSchema = new mongoose.Schema({
-
+    commentID: { 
+        type: Number,
+        required: true }, 
     commentContent: {
         type: String,
         required: true
@@ -21,10 +23,10 @@ var CommentSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    
-    commentID: { 
+    postID: {
         type: Number,
-        required: true }, 
+        required: true
+    }
 });
 
 

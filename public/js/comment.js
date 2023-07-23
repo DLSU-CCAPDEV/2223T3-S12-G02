@@ -1,12 +1,9 @@
-//const db = require('./db'); 
-
-function createCommentElement(author, content) {
-    var commentId = 'comment-' + Date.now();
+function createCommentElement(commentID, author, content, likes) {
 
     // Create comment element
     var comment = $('<div>', {
         class: 'comment row',
-        id: commentId
+        id: commentID
     });
 
     var ratingBar = $('<div>', {
@@ -16,19 +13,19 @@ function createCommentElement(author, content) {
     var upvoteButton = $('<div>', {
         class: 'button upvote',
         text: '⮝',
-        id: 'upvote-' + commentId
+        id: 'upvote-' + commentID
     });
 
     var counter = $('<div>', {
         class: 'counter',
-        text: '0',
-        id: 'counter-' + commentId
+        text: likes,
+        id: 'counter-' + commentID
     });
 
     var downvoteButton = $('<div>', {
         class: 'button downvote',
         text: '⮟',
-        id: 'downvote-' + commentId
+        id: 'downvote-' + commentID
     });
 
     ratingBar.append(upvoteButton, counter, downvoteButton);
@@ -70,16 +67,16 @@ function createCommentElement(author, content) {
     $('.comment_container').append(comment);
 
     upvoteButton.on('click', function() {
-        vote(commentId, 1);
+        vote(commentID, 1);
     });
 
     downvoteButton.on('click', function() {
-        vote(commentId, -1);
+        vote(commentID, -1);
     });
-
+    
     deleteButton.on('click', function() {
       //  deleteButton.closest('.comment.row').remove();
-        db.deleteOne('comments', { _id: commentId }, (err, deletedComment) => {
+        db.deleteOne('comments', { _id: commentID }, (err, deletedComment) => {
       if (err) {
         console.error('Error deleting comment:', err.message);
       } else {
@@ -91,26 +88,29 @@ function createCommentElement(author, content) {
 }
 
 function pPostComment(author) {
-    var content = $('#pComment').val();
-    author = '@' + 'Foo.Bar';
+  var content = $('#pComment').val();
+  author = '@' + 'Foo.Bar';
 
-    createCommentElement(author, content);
+  createCommentElement(author, content);
 }
-// Saves the comment to the database using the insertOne (from db.js)
-  const commentData = {
-    commentID: commentId,
-    commentContent: content,
-    commentAuthor: author,
-   // commentLikes: 0,
-  };
 
-  db.insertOne(Comment, commentData, (err, insertedComment) => {
-    if (err) {
-      console.error('Error saving comment:', err.message);
-    } else {
-      console.log('Comment saved:', insertedComment);
-    }
-  });
+/*
+// Saves the comment to the database using the insertOne (from db.js)
+const commentData = {
+commentID: commentId,
+commentContent: content,
+commentAuthor: author,
+  // commentLikes: 0,
+};
+
+db.insertOne(Comment, commentData, (err, insertedComment) => {
+  if (err) {
+    console.error('Error saving comment:', err.message);
+  } else {
+    console.log('Comment saved:', insertedComment);
+  }
+});
+*/
 
 
 

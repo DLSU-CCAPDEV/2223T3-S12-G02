@@ -9,9 +9,12 @@
 	<script src="../js/comment.js"></script>
 	<script>
 		$(document).ready(function () {
-			$('#pSubmit').on('click', pPostComment);
+			//$('#pSubmit').on('click', pPostComment);
 
 			createPost({{post.postID}}, `{{post.postTitle}}`, `{{post.postContent}}`, `{{post.postAuthor}}`, {{post.postLikes}});
+			{{#each commentList}}
+			createCommentElement({{commentID}}, `{{commentAuthor}}`, `{{commentContent}}`, {{commentLikes}});
+			{{/each}}
 
 		});
 	</script>
@@ -29,9 +32,9 @@
 		<div class="post_container">
 		</div>
 		<div class="post_form">
-			<form>
+			<form method="post" action="{{post.postID}}">
 				<textarea name="pComment" id="pComment" placeholder="Comment on this Thread"></textarea>
-				<input type="button" name="pSubmit" id="pSubmit" value="Comment">
+				<input type="submit" name="pSubmit" id="pSubmit" value="Comment">
 			</form>
 		</div>
 	</header>

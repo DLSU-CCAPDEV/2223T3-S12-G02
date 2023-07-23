@@ -2,31 +2,22 @@ const db = require('../models/db.js');
 const Comment = require('../models/CommentModel.js');
 
 const commentController = {
-
-  getCommentsForPost: async function (req, res) {
-    const postId = req.params.postId;
-   
-    const query = { postID: postId };
-    const projection = 'commentID commentContent commentAuthor commentLikes';
-    const comments = await db.findMany(Comment, query, projection);
-    res.json(comments);
-  },
-
   // Method to add a new comment to a specific post
-  addCommentToPost: async function (req, res) {
-    const postId = req.body.postId;
-    const commentContent = req.body.commentContent;
-    const commentAuthor = 'Foo.Bar'; 
-    const commentLikes = 0; /
-    const commentData = {
-      postID: postId,
-      commentContent: commentContent,
-      commentAuthor: commentAuthor,
-      commentLikes: commentLikes,
-    };
+  submitComment : async function(req, res) {
 
-    const insertedComment = await db.insertOne(Comment, commentData);
-    res.json(insertedComment);
+    var pID = req.params.pID;
+    var pComment = req.body.pComment;
+
+    var doc = {
+        commentID: Date.now(),
+        commentContent: pComment,
+        commentAuthor: `foobar`,//
+        commentLikes: 0,
+        postID: pID
+    };
+    
+    await db.insertOne(Comment, doc);
+    res.redirect(`/post/`+ pID);
   },
 
   // Method to update comment likes

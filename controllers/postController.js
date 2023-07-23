@@ -9,12 +9,16 @@ const postController = {
         var query = {postID: req.params.pID};
 
         var projection = `postID postTitle postContent postAuthor postLikes`;
+        var commentprojection = `commentID commentContent commentAuthor commentLikes postID`;
 
         var result =  await db.findOne(Post, query, projection);
+        var commentList = await db.findMany(Comment, query, commentprojection);
+        commentList.sort((a, b) => b.commentID - a.commentID);
 
         if (result != null) {
             var data = {
-                post: result
+                post: result,
+                commentList: commentList
             }
             
             res.render(`post`, data);

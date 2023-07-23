@@ -4,6 +4,7 @@ const controller = require('../controllers/controller.js');
 
 const homeController = require('../controllers/homeController.js');
 const postController = require('../controllers/postController.js');
+const commentController = require('../controllers/commentController.js');
 const voteController = require('../controllers/voteController.js');
 const searchController = require('../controllers/searchController.js');
 
@@ -14,6 +15,7 @@ app.get(`/home`, homeController.refreshFeed);
 app.post(`/submitPost`, homeController.submitPost);
 
 app.get(`/post/:pID`, postController.getPost);
+app.post(`/post/:pID`, commentController.submitComment);
 app.post(`/update-vote`, voteController.updatePostVote);
 
 app.get(`/home_logged`, controller.getRoot);
@@ -36,9 +38,6 @@ app.get(`/login`, controller.redirectRoot);
 app.post(`/checkAcct`, controller.checkAcct);
 
 */
-
-app.get('/post/:postId/comments', commentController.getCommentsForPost);
-app.post('/post/:postId/comments', commentController.addCommentToPost);
 app.post('/comments/:commentId/likes', commentController.updateCommentLikes);
 app.delete('/comments/:commentId', commentController.deleteComment);
 
