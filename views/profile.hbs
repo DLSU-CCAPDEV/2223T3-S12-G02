@@ -8,12 +8,11 @@
 	<script src="../js/main.js"></script>
 	<script>
 		$(document).ready(function(){
-			// TODO: Append all user's posts to post_container 
-			$('#pSubmit').on('click', pPost);
-
-			setTimeout(function() {
-				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`);
-			},100);
+			
+			{{#each postList}}
+			createPost({{postID}}, `{{postTitle}}`, `{{postContent}}`, `{{postAuthor}}`, {{postLikes}});
+			{{/each}}
+			
 		});
 	</script>
 	<title>Profile Page</title>
