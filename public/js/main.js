@@ -124,25 +124,6 @@ function vote(postId, value) {
 	var downvoteButton = $('#downvote-' + postId);
 	var currentVote = votedPosts[postId] || 0;
 
-	// Check if the user has already voted on this post
-	if (currentVote === value) {
-	    // User clicked on the same vote, remove the vote
-	    delete votedPosts[postId];
-	    value = 0;
-	    upvoteButton.removeClass('selected-upvote');
-	    downvoteButton.removeClass('selected-downvote');
-	} else {
-	    votedPosts[postId] = value;
-	    if (value == 1) {
-	    	upvoteButton.addClass('selected-upvote')
-	    	downvoteButton.removeClass('selected-downvote');
-	    }
-	    else if (value == -1){
-	    	upvoteButton.removeClass('selected-upvote');
-	    	downvoteButton.addClass('selected-downvote')
-	    }
-	}
-
 	var counter = $('#counter-' + postId);
 	var currentCount = parseInt(counter.text());
 
@@ -156,6 +137,24 @@ function vote(postId, value) {
             value: newCount
         },
         success: function (response) {
+			// Check if the user has already voted on this post
+			if (currentVote === value) {
+				// User clicked on the same vote, remove the vote
+				delete votedPosts[postId];
+				value = 0;
+				upvoteButton.removeClass('selected-upvote');
+				downvoteButton.removeClass('selected-downvote');
+			} else {
+				votedPosts[postId] = value;
+				if (value == 1) {
+					upvoteButton.addClass('selected-upvote')
+					downvoteButton.removeClass('selected-downvote');
+				}
+				else if (value == -1){
+					upvoteButton.removeClass('selected-upvote');
+					downvoteButton.addClass('selected-downvote')
+				}
+			}
 			counter.text(newCount);
         },
         error: function (xhr, status, error) {
