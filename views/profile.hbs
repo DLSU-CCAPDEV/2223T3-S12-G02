@@ -8,10 +8,9 @@
 	<script src="../js/main.js"></script>
 	<script>
 		$(document).ready(function(){
+			// TODO: Append all user's posts to post_container 
 			$('#pSubmit').on('click', pPost);
 
-			// Dummy Posts
-			// Since it uses time as unique ID, I had to delay each post
 			setTimeout(function() {
 				createPost(`Introduction to the Forum`,`Hello everyone! I'm excited to join this forum and connect with fellow members. I'm particularly interested in discussing the latest trends in technology. Looking forward to engaging conversations and learning from all of you. Cheers!`,`@Steeve`);
 			},100);
@@ -25,8 +24,12 @@
 		<ul>
 			<li><a href="home">Home</a></li>
 			<li><a href="search">Search</a></li>
+			{{#if isLoggedIn}}
 			<li><a href="edit_profile">Edit Profile</a></li>
 			<li><a href="login">Log Out</a></li>
+			{{else}}
+			<li><a href="login">Log In</a></li>
+			{{/if}}
 		</ul>
 	</nav>
 	<div class="profile-body">
@@ -36,8 +39,8 @@
 				
 			</div>
 			<div class="user-details">
-				<span class="username-box" > <h2 class="username"> Steeve </h2> </span>
-				<p class="description"> New to this forum, say hello!</p>
+				<span class="username-box" > <h2 class="username"> {{userName}} </h2> </span>
+				<p class="description"> {{userBio}} </p>
 				
 			</div>
 		</div>
