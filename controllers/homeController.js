@@ -8,13 +8,13 @@ const homeController = {
 
         var projection = `postID postTitle postContent postAuthor postLikes`;
 
-        var result = await db.findMany(Post, {}, projection);
-
-        var postList = {
-            postList: result
+        var data = {
+            isLoggedIn: true,//req.body.isLoggedIn,
+            username: `foobar`,//req.body.username,
+            postList: await db.findMany(Post, {}, projection)
         }
 
-        res.render('home', postList);
+        res.render('home', data);
     },
 
     submitPost : function(req, res) {

@@ -10,10 +10,9 @@
 		$(document).ready(function(){
 
 			{{#each postList}}
-			createPost({{postID}}, '{{postTitle}}', "{{postContent}}", "{{postAuthor}}", {{postLikes}});
+			createPost({{postID}}, `{{postTitle}}`, `{{postContent}}`, `{{postAuthor}}`, {{postLikes}});
 			{{/each}}
 
-			$('#pSubmit').on('click', pPost);
 			/*
 			// Dummy Posts
 			// Since it uses time as unique ID, I had to delay each post
