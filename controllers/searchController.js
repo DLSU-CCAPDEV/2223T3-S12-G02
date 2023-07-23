@@ -27,7 +27,6 @@ const searchController = {
 
             // Sort the postList in descending order based on the createdAt field (newest posts first)
             postList.sort((a, b) => b.postID - a.postID);
-
         }
 
         var data = {
