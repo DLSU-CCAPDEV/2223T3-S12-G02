@@ -7,6 +7,7 @@ const postController = require('../controllers/postController.js');
 const commentController = require('../controllers/commentController.js');
 const voteController = require('../controllers/voteController.js');
 const searchController = require('../controllers/searchController.js');
+const profileController = require('../controllers/profileController.js');
 
 const app = express();
 
