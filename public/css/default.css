@@ -415,6 +415,6 @@ footer {
 	border-right: none;
 }
 
-header .post.row .tools {
+content .post.row .tools {
 	display: none;
 }
