@@ -22,7 +22,9 @@ var CommentSchema = new mongoose.Schema({
         required: true
     },
     
-    commentID: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' }, 
+    commentID: { 
+        type: Number,
+        required: true }, 
 });
 
 
