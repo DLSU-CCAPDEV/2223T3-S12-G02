@@ -1,3 +1,5 @@
+//const db = require('./db'); 
+
 function createCommentElement(author, content) {
     var commentId = 'comment-' + Date.now();
 
@@ -95,13 +97,14 @@ function pPostComment(author) {
     createCommentElement(author, content);
 }
 // Saves the comment to the database using the insertOne (from db.js)
-  const comment = {
+  const commentData = {
+    commentID: commentId,
     commentContent: content,
     commentAuthor: author,
    // commentLikes: 0,
   };
 
-  db.insertOne('comments', comment, (err, insertedComment) => {
+  db.insertOne(Comment, commentData, (err, insertedComment) => {
     if (err) {
       console.error('Error saving comment:', err.message);
     } else {
