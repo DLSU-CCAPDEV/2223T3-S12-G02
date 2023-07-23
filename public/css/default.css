@@ -77,7 +77,7 @@ nav ul li:hover {
 header {
     background-color: var(--lightaccent);
     display: flex;
-    align-content: center;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
 }

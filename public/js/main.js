@@ -51,9 +51,7 @@ function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 	// TODO: auto generate link for post ids
 	// Create the link element
 	var link = $('<a>', {
-		href: 'post.html'
-		// TODO: bring this back
-		//href: '#' + 'post-' + postId
+		href: '/post/' + postID
 	});
 
 	// Create the text element

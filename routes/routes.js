@@ -3,12 +3,15 @@ const express = require('express');
 const controller = require('../controllers/controller.js');
 
 const homeController = require('../controllers/homeController.js');
+const postController = require('../controllers/postController.js');
 
 const app = express();
 
 app.get(`/`, homeController.refreshFeed);
 app.get(`/home`, homeController.refreshFeed);
-app.post(`/post`, homeController.submitPost);
+app.post(`/submitPost`, homeController.submitPost);
+
+app.get(`/post/:pID`, postController.getPost);
 
 app.get(`/home_logged`, controller.getRoot);
 
@@ -19,8 +22,6 @@ app.get(`/login`, controller.getLogin);
 app.get(`/register`, controller.getRegister);
 
 app.post(`/register`, controller.postRegister);
-
-app.get(`/post`, controller.getPost);
 
 app.get(`/profile`, controller.getProfile);
 

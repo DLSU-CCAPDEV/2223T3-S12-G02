@@ -1,4 +1,5 @@
 const db = require('../models/db.js');
+const Post = require('../models/PostModel.js');
 
 const controller = {
 
@@ -33,32 +34,9 @@ const controller = {
     postRegister: function(req, res) {
         res.redirect(`/`);
     },
-
-    getPost: function(req, res) {
-        res.render(`post`);
-    },
-
     getProfile: function(req, res) {
         res.render(`profile`);
     }
-
-    /* // Reference from original code //
-    getRoot: function(req, res) {
-        res.render(`login`);
-    },
-
-    redirectRoot: function(req, res) {
-        res.redirect(`/`);
-    },
-
-    checkAcct: function(req, res) {
-        var email = req.body.email;
-        var password = req.body.pw;
-
-    res.render(`profile`, {email: email});
-    }
-    */
-
 }
 
 module.exports = controller;

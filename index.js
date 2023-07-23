@@ -1,6 +1,7 @@
 const dotenv = require(`dotenv`);
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
+const hbs = require(`hbs`);
 const routes = require('./routes/routes.js');
 const db = require(`./models/db.js`);
 
@@ -17,6 +18,8 @@ db.connect();
 
 // Set handlebars as view engine
 app.set(`view engine`, `hbs`);
+
+hbs.registerPartials(__dirname + '/views/partials');
 
 // Set-up public folder and routes
 app.use(express.static(`public`));

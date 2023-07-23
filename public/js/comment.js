@@ -108,7 +108,7 @@ function pPostComment(author) {
       console.log('Comment saved:', insertedComment);
     }
   });
-}
+
 
 
 

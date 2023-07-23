@@ -1,5 +1,4 @@
 const db = require(`../models/db.js`);
-const main = require(`../public/js/main.js`);
 const Post = require('../models/PostModel.js');
 
 const homeController = {
