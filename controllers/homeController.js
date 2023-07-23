@@ -7,16 +7,22 @@ const homeController = {
 
         var projection = `postID postTitle postContent postAuthor postLikes`;
 
+        // Retrieve the postList without sorting
+        var postList = await db.findMany(Post, {}, projection);
+
+        // Sort the postList in descending order based on the createdAt field (newest posts first)
+        postList.sort((a, b) => b.postID - a.postID);
+
         var data = {
             isLoggedIn: true,//req.body.isLoggedIn,
             username: `foobar`,//req.body.username,
-            postList: await db.findMany(Post, {}, projection)
+            postList: postList
         }
 
         res.render('home', data);
     },
 
-    submitPost : function(req, res) {
+    submitPost : async function(req, res) {
 
         var pTitle = req.body.pTitle;
         var pContent = req.body.pContent;
@@ -29,8 +35,8 @@ const homeController = {
             postLikes: 0
         };
         
-        db.insertOne(Post, doc);
-        res.redirect(`/home`);
+        await db.insertOne(Post, doc);
+        res.redirect(`/`);
     }
 
 };
