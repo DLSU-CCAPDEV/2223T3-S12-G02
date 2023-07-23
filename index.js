@@ -2,6 +2,7 @@ const dotenv = require(`dotenv`);
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
 const routes = require('./routes/routes.js');
+const db = require(`./models/db.js`);
 
 // Set-up Express
 const app = express();
@@ -10,6 +11,9 @@ const app = express();
 dotenv.config();
 port = process.env.PORT;
 hostname = process.env.HOSTNAME;
+
+// connect to database
+db.connect();
 
 // Set handlebars as view engine
 app.set(`view engine`, `hbs`);

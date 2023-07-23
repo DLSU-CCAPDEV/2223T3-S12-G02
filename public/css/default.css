@@ -110,7 +110,6 @@ content {
 	padding: 0.5rem;
 	border: none;
 	border-radius: 10px 10px 0 0;
-	font-family: ;
 	font-size: 1.2rem;
 	font-weight: 300;
 }
@@ -136,7 +135,7 @@ content {
 	outline: none;
 }
 
-.post_form form input[type="button"] {
+.post_form form input#pSubmit {
     font-family: 'Open Sans', sans-serif;
     border: 0;
     border-radius: 5px;
@@ -147,7 +146,7 @@ content {
     cursor: pointer;
 }
 
-.post_form form input[type="button"]:hover {
+.post_form form input#pSubmit:hover {
 	background-color: var(--darktertiary);
 } 
 

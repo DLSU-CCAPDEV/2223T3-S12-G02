@@ -8,7 +8,14 @@
 var mongoose = require('mongoose');
 
 var PostSchema = new mongoose.Schema({
-
+    postID: {
+        type: Number,
+        required: true
+    },
+    postTitle: {
+        type: String,
+        required: true
+    },
     postContent: {
         type: String,
         required: true

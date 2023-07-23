@@ -7,14 +7,14 @@ const controller = {
     */
     getRoot: function(req, res) {
         const data = {
-            isLoggedIn: false,
-            username: `banana`
+            isLoggedIn: true,
+            username: `foobar`
         }
         res.render(`home`, data);
     },
 
     redirectRoot: function(req, res) {
-        res.redirect(`/`);
+        res.redirect(`/home`);
     },
 
     getSearch: function(req, res) {

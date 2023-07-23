@@ -1,193 +1,98 @@
 
-// import module `mongodb`
-const mongodb = require('mongodb');
+// import module `mongoose`
+const mongoose = require('mongoose');
 
-// MongoDB client
-const client = mongodb.MongoClient;
+const User = require('./UserModel.js');
+const Post = require('./PostModel.js');
+const Comment = require('./CommentModel.js');
+
 const url = 'mongodb+srv://aianfuentespina:AojZtvwgYY0QOS91@cluster0.45z065t.mongodb.net/?retryWrites=true&w=majority';
 
-// name of the database
-const dbName = 'database';
-
 // additional connection options
-const options = { useUnifiedTopology: true };
+const options = {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+};
 
 // defines an object which contains necessary database functions
 const database = {
 
     /*
-        creates database
+        connects to database
     */
-    createDatabase: function() {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            console.log('Database created!');
-            db.close();
-        });
+    connect: async function () {
+        await mongoose.connect(url, options);
+        console.log('Connected to: ' + url);
     },
 
     /*
-        creates collection `collection`
+        inserts a single `doc` to the database based on the model `model`
     */
-    createCollection: function(collection) {
-        client.connect(url, options, function(err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.createCollection(collection, function (err, res) {
-                if(err) throw err;
-                console.log('Collection ' + collection + ' created');
-                db.close();
-            });
-        });
+    insertOne: async function(model, doc) {
+        return await model.create(doc);
     },
 
     /*
-        inserts document `doc` to collection `collection`
+        inserts multiple `docs` to the database based on the model `model`
     */
-    insertOne: function(collection, doc) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).insertOne(doc, function (err, res) {
-                if(err) throw err;
-                console.log('1 document inserted');
-                db.close();
-            });
-        });
+    insertMany: async function(model, docs) {
+        return await model.insertMany(docs);
     },
 
     /*
-        inserts array of documents `docs` to collection `collection`
+        searches for a single document based on the model `model`
+        filtered through the object `query`
+        limits the fields returned based on the string `projection`
+        callback function is called after the execution of findOne() function
     */
-    insertMany: function(collection, docs) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).insertMany(docs, function (err, res) {
-                if(err) throw err;
-                console.log('Documents inserted: ' + res.insertedCount);
-                db.close();
-            });
-        });
+    findOne: async function(model, query, projection) {
+        return await model.findOne(query, projection);
     },
 
     /*
-        searches for a single document in the collection `collection`
-        based on the contents of object `query`
-        callback function is called
-        when the database has finished the execution of findOne() function
+        searches for multiple documents based on the model `model`
+        filtered through the object `query`
+        limits the fields returned based on the string `projection`
+        callback function is called after the execution of findMany() function
     */
-    findOne: function(collection, query, callback) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).findOne(query, function (err, result) {
-                if(err) throw err;
-                db.close();
-                return callback(result);
-            });
-        });
-    },
-
-    /*
-        searches for multiple documents in the collection `collection`
-        based on the contents of object `query`
-        callback function is called
-        when the database has finished the execution of findMany() function
-    */
-    findMany: function(collection, query, sort=null, projection=null, callback) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).find(query, {projection: projection})
-            .sort(sort).toArray(function (err, result) {
-                if(err) throw err;
-                db.close();
-                return callback(result);
-            });
-        });
-    },
-
-    /*
-        deletes a single document in the collection `collection`
-        based on the object `filter`
-    */
-    deleteOne: function(collection, filter) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).deleteOne(filter, function (err, res) {
-                if(err) throw err;
-                console.log('1 document deleted');
-                db.close();
-            });
-        });
-    },
-
-    /*
-        deletes multiple documents in the collection `collection`
-        based on the object `filter`
-    */
-    deleteMany: function(collection, filter) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).deleteMany(filter, function(err, res) {
-                if(err) throw err;
-                console.log('Documents deleted: ' + res.deletedCount);
-                db.close();
-            });
-        });
-    },
-
-    /*
-        drops the collection `collection`
-    */
-    dropCollection: function(collection) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).drop(function (err, res) {
-                if(err) throw err;
-                console.log('Collection ' + collection + ' deleted');
-                db.close();
-            });
-        });
+    findMany: async function(model, query, projection) {
+        return await model.find(query, projection);
     },
 
     /*
         updates the value defined in the object `update`
-        on a single document in the collection `collection`
-        based on the object `filter`
+        on a single document based on the model `model`
+        filtered by the object `filter`
     */
-    updateOne: function(collection, filter, update) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).updateOne(filter, update, function (err, res) {
-                if(err) throw err;
-                console.log('1 document updated');
-                db.close();
-            });
-        });
+    updateOne: async function(model, filter, update) {
+        return await model.updateOne(filter, update);
     },
 
     /*
         updates the value defined in the object `update`
-        on multiple documents in the collection `collection`
-        based on the object `filter`
+        on multiple documents based on the model `model`
+        filtered using the object `filter`
     */
-    updateMany: function(collection, filter, update) {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            var database = db.db(dbName);
-            database.collection(collection).updateMany(filter, update, function (err, res) {
-                if(err) throw err;
-                console.log('Documents updated: ' + res.modifiedCount);
-                db.close();
-            });
-        });
+    updateMany: async function(model, filter, update) {
+        return await model.updateMany(filter, update);
+    },
+
+    /*
+        deletes a single document based on the model `model`
+        filtered using the object `conditions`
+    */
+    deleteOne: async function(model, conditions) {
+        return await model.deleteOne(conditions);
+    },
+
+    /*
+        deletes multiple documents based on the model `model`
+        filtered using the object `conditions`
+    */
+    deleteMany: async function(model, conditions) {
+        return await model.deleteMany(conditions);
     }
+
 }
 
 /*

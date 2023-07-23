@@ -20,7 +20,7 @@ var UserSchema = new mongoose.Schema({
     userBio: {
         type: String,
         required: false
-    }
+    },
     pw: {
         type: String,
         required: true

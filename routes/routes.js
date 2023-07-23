@@ -2,10 +2,13 @@ const express = require('express');
 
 const controller = require('../controllers/controller.js');
 
+const homeController = require('../controllers/homeController.js');
+
 const app = express();
 
-app.get(`/`, controller.getRoot);
-app.get(`/home`, controller.redirectRoot);
+app.get(`/`, homeController.refreshFeed);
+app.get(`/home`, homeController.refreshFeed);
+app.post(`/post`, homeController.submitPost);
 
 app.get(`/home_logged`, controller.getRoot);
 

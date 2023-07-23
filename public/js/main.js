@@ -1,14 +1,12 @@
 var votedPosts = {};
 
-function createPost(pTitle, pContent, pAuthor) {
+function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 	var postContainer = $('.post_container');
-
-	var postId = Date.now();
 
 	// Create the post row element
 	var postRow = $('<div>', {
 		class: 'post row',
-		id: postId
+		id: postID
 	});
 	  
 	// Create the rating bar element
@@ -19,21 +17,21 @@ function createPost(pTitle, pContent, pAuthor) {
 	// TODO: votes should only work once per user
 	// Create the upvote button
 	var upvoteButton = $('<div>', {
-		id: 'upvote-' + postId,
+		id: 'upvote-' + postID,
 		class: 'button upvote',
 		text: '⮝'
 	});
 	  
 	// Create the counter element
 	var counter = $('<div>', {
-		id: 'counter-' + postId,
+		id: 'counter-' + postID,
 		class: 'counter',
-		text: '0'
+		text: postLikes
 	});
 
 	// Create the downvote button
 	var downvoteButton = $('<div>', {
-		id: 'downvote-' + postId,
+		id: 'downvote-' + postID,
 		class: 'button downvote',
 		text: '⮟'
 	});
@@ -83,7 +81,7 @@ function createPost(pTitle, pContent, pAuthor) {
 
 	author.append($('<div>', {
 		class: 'author',
-		text: pAuthor
+		text: '@' + pAuthor
 	}));
 
     var tools = $('<div>', {
@@ -110,11 +108,11 @@ function createPost(pTitle, pContent, pAuthor) {
 	postContainer.append(postRow);
 
 	upvoteButton.on('click', function() {
-		vote(postId, 1);
+		vote(postID, 1);
 	});
 
 	downvoteButton.on('click', function() {
-		vote(postId, -1);
+		vote(postID, -1);
 	});
 
     deleteButton.on('click', function() {
