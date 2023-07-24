@@ -30,6 +30,13 @@ app.use(
 // Set handlebars as view engine
 app.set(`view engine`, `hbs`);
 
+// Use this to call session variables using
+// {{session.VARIABLE}} in handlebars
+app.use(function (req, res, next) {
+    res.locals.session = req.session;
+    next();
+});
+
 hbs.registerPartials(__dirname + '/views/partials');
 
 // HBS helper
