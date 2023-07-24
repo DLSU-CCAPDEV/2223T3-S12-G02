@@ -16,9 +16,14 @@ const editProfileController = {
 		}
 
 		res.render('edit_profile', data);
-	}
+	},
 
-	
+	updateProfile: async function(req, res) {
+		var query = {userName: req.session.userName};
+
+	        await db.updateOne(User, query, {userName: req.body.userName, userEmail: req.body.userEmail, userBio: req.body.userBio});
+	        res.redirect(`/profile/` + req.body.userName);
+	}	
 };
 
 module.exports = editProfileController;
