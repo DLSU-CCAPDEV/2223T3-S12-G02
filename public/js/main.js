@@ -79,7 +79,7 @@ function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 
 	author.append($('<div>', {
 		class: 'author',
-		text: '@' + pAuthor
+		html: '@' + pAuthor
 	}));
 
     var tools = $('<div>', {

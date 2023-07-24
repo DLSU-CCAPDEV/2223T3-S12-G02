@@ -36,12 +36,12 @@ function createCommentElement(commentID, author, content, likes) {
 
     var text = $('<div>', {
         class: 'text',
-        text: content
+        html: content
     });
 
     var author = $('<div>', {
         class: 'author',
-        text: '@' + author
+        html: '@' + author
     });
 
     var tools = $('<div>', {
