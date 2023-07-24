@@ -20,7 +20,7 @@
 <body>
 	{{> navbar}}
 	<header>
-		{{#if isLoggedIn}}
+		{{#if session.isLoggedIn}}
 		<div class="post_form">
 			<form method="post" action="submitPost">
 				<input type="text" name="pTitle" id="pTitle" placeholder="Thread Title">

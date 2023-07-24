@@ -31,7 +31,7 @@ const homeController = {
             postID: Date.now(),
             postTitle: pTitle,
             postContent: pContent,
-            postAuthor: `foobar`,
+            postAuthor: req.session.username,
             postLikes: 0
         };
         

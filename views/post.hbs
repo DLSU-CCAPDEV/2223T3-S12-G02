@@ -38,12 +38,14 @@
 	<header>
 		<div class="post_container">
 		</div>
+		{{#if session.isLoggedIn}}
 		<div class="post_form">
 			<form method="post" action="{{post.postID}}">
 				<textarea name="pComment" id="pComment" placeholder="Comment on this Thread" required></textarea>
 				<input type="submit" name="pSubmit" id="pSubmit" value="Comment">
 			</form>
 		</div>
+		{{/if}}
 	</header>
 	<content>
 		<div class="comment_container">

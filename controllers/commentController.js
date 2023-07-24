@@ -11,7 +11,7 @@ const commentController = {
     var doc = {
         commentID: Date.now(),
         commentContent: pComment,
-        commentAuthor: `foobar`,//
+        commentAuthor: req.session.username,
         commentLikes: 0,
         postID: pID
     };
