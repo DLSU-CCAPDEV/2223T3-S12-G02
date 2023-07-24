@@ -23,6 +23,13 @@
 			border-radius: 10px;
 			margin-top: 1rem;
 		}
+
+		{{#ifnoteq username post.postAuthor}}
+		header .post.row .tools {
+			display: none;
+		}
+		{{/ifnoteq}}
+
 	</style>
 	<title>ThreadTalk.™ — Speak your mind</title>
 </head>

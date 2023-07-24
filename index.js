@@ -21,6 +21,17 @@ app.set(`view engine`, `hbs`);
 
 hbs.registerPartials(__dirname + '/views/partials');
 
+// HBS helper
+// if equals
+hbs.registerHelper('ifeq', function (a, b, options) {
+    if (a == b) { return options.fn(this); }
+    return options.inverse(this);
+});
+hbs.registerHelper('ifnoteq', function (a, b, options) {
+    if (a != b) { return options.fn(this); }
+    return options.inverse(this);
+});
+
 // Set-up public folder and routes
 app.use(express.static(`public`));
 app.use(bodyParser.urlencoded( {extended: false} ))
