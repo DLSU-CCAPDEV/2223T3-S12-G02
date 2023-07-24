@@ -19,7 +19,7 @@ const editProfileController = {
 	},
 
 	updateProfile: async function(req, res) {
-		var query = {userName: req.session.userName};
+		var query = {userName: req.session.username};
 
 	        await db.updateOne(User, query, {userName: req.body.userName, userEmail: req.body.userEmail, userBio: req.body.userBio});
 	        res.redirect(`/profile/` + req.body.userName);
