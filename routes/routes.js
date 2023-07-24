@@ -43,8 +43,9 @@ app.get('/login', loginController.getLogIn);
 app.post('/login', loginController.postLogIn);
 
 app.get(`/profile`, controller.getProfile);
-
 app.get(`/profile/:userName`, profileController.getProfile); 
 
+app.get(`/edit_profile/:userName`, editProfileController.getProfile);
+app.post(`/edit_profile/:userName`, editProfileController.updateProfile);
 
 module.exports = app;
