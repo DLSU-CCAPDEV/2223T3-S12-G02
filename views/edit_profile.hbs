@@ -16,16 +16,16 @@
 		<div class="editors">
 			<div class="account_editor"> 
 				<form action="/edit_profile" method="post">
-				<!-- TODO: Make values match current profile -->
+					
 				<h1> User Info </h1>
 				<h2> Username </h2>
-				<input type="text" name="userName" class="profile_input" value="Steeve">
+				<input type="text" name="userName" class="profile_input" value={{userName}}>
 				<h2> Email</h2>
-				<input type="text" name="userEmail" class="profile_input" value="steeve@gmail.com">
+				<input type="text" name="userEmail" class="profile_input" value={{userEmail}}>
 				<h2> Password </h2> 
-				<input type="password" name="pw" class="profile_input" value="password">
+				<input type="password" name="pw" class="profile_input" value={{pw}}>
 				<h2> Description </h2> 
-				<textarea class="description_input" name="userBio" value="New to this forum, say hello!" placeholder="Add a description"></textarea>
+				<textarea class="description_input" name="userBio" value={{userBio}} placeholder="Add a description"></textarea>
 				<input type="submit" name="saveChanges" class="save_button" value="Save">
 
 				</form>
