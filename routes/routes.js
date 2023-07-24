@@ -44,7 +44,7 @@ app.post('/login', loginController.postLogIn);
 
 app.get(`/profile`, controller.getProfile);
 
-app.get(`/profile/:userName`, profileController.getPosts); 
+app.get(`/profile/:userName`, profileController.getProfile); 
 
 
 module.exports = app;

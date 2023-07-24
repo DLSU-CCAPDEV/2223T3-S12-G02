@@ -4,21 +4,22 @@ const User = require(`../models/UserModel.js`);
 
 const profileController = {
 
-	getPosts: async function(req, res) {
+	getProfile: async function(req, res) {
 
-	var query = {postAuthor: req.params.userName};
+        var query = {postAuthor: req.params.userName};
         var projection = `postID postTitle postContent postAuthor postLikes`;
 
+        var user = await db.findOne(User, {userName: req.params.userName}, `userName userBio`);
         var postList = await db.findMany(Post, query, projection);
 
         postList.sort((a, b) => b.postID - a.postID);
 
         var data = {
-        	isLoggedIn: req.session.isLoggedIn,
-            username: req.session.username,
-        	userBio: `Its Joever.`, //req.body.userBio,
-        	postList: postList
-        }
+            isLoggedIn: req.session.isLoggedIn,
+            userName: req.params.userName,
+            userBio:  user.userBio,
+            postList: postList
+        };
         
         res.render('profile', data);
     }
