@@ -8,6 +8,9 @@ const commentController = require('../controllers/commentController.js');
 const voteController = require('../controllers/voteController.js');
 const searchController = require('../controllers/searchController.js');
 const profileController = require('../controllers/profileController.js');
+const registerController = require('../controllers/registerController.js');
+const validation = require('../helpers/validation.js');
+const loginController = require('../controllers/loginController.js');
 
 const app = express();
 
@@ -26,11 +29,13 @@ app.get(`/home_logged`, controller.getRoot);
 
 app.get(`/search`, searchController.refreshFeed);
 
-app.get(`/login`, controller.getLogin);
+app.get(`/register`, registerController.getRegister);
+app.post(`/register`, validation.registerValidation(), registerController.postRegister);
+app.get('/getCheckUsername', registerController.getCheckUsername);
 
-app.get(`/register`, controller.getRegister);
-
-app.post(`/register`, controller.postRegister);
+app.get('/getCheckEmail', registerController.getCheckEmail);
+app.get('/login', loginController.getLogIn);
+app.post('/userLogin', loginController.postLogIn);
 
 app.get(`/profile`, controller.getProfile);
 
