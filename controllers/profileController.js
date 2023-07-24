@@ -6,7 +6,7 @@ const profileController = {
 
 	getPosts: async function(req, res) {
 
-	var query = {postAuthor: req.query.userName};
+	var query = {postAuthor: req.params.userName};
         var projection = `postID postTitle postContent postAuthor postLikes`;
 
         var postList = await db.findMany(Post, query, projection);

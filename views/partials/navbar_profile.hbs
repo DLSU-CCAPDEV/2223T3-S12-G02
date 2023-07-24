@@ -1,0 +1,13 @@
+<nav>
+    <a href="/home"> <div class="logo"></div> </a>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/search">Search</a></li>
+        {{#if isLoggedIn}}
+        <li><a href="/edit_profile">Edit Profile</a></li>
+        <li><a href="/login">Log Out</a></li>
+        {{else}}
+        <li><a href="/login">Log In</a></li>
+        {{/if}}
+    </ul>
+</nav>
