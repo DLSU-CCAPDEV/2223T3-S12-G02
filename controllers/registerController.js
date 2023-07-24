@@ -8,7 +8,6 @@ const registerController = {
     },
 
     postRegister: async function (req, res) {
-
         var errors = validationResult(req);
 
         if (!errors.isEmpty()) {
@@ -34,7 +33,7 @@ const registerController = {
             var response = await db.insertOne(User, user);
 
             if (response != null) {
-                res.redirect('/home?username=' + userName);
+                res.redirect('/login');
             }
             else {
                 res.render('error');

@@ -2,6 +2,7 @@ const dotenv = require(`dotenv`);
 const express = require(`express`);
 const bodyParser = require(`body-parser`);
 const hbs = require(`hbs`);
+const session = require('express-session');
 const routes = require('./routes/routes.js');
 const db = require(`./models/db.js`);
 
@@ -15,6 +16,16 @@ hostname = process.env.HOSTNAME;
 
 // connect to database
 db.connect();
+
+// setup sessions system
+app.use(
+    session({
+        secret: 'Your_Secret_Key',
+        resave: false,
+        saveUninitialized: false,
+        cookie: { maxAge: 60 * 60 * 1000 }, // Session duration in milliseconds (e.g., 1 hour)
+    })
+);
 
 // Set handlebars as view engine
 app.set(`view engine`, `hbs`);

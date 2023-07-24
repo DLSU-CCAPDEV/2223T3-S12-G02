@@ -8,8 +8,8 @@ const controller = {
     */
     getRoot: function(req, res) {
         const data = {
-            isLoggedIn: true,
-            username: `foobar`
+            isLoggedIn: req.session.isLoggedIn,
+            username: req.session.username
         }
         res.render(`home`, data);
     },

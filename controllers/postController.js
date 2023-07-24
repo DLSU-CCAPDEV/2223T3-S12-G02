@@ -17,8 +17,8 @@ const postController = {
 
         if (result != null) {
             var data = {
-                isLoggedIn: true,//req.body.isLoggedIn,
-                username: `foobar`,//req.body.username,
+                isLoggedIn: req.session.isLoggedIn,
+                username: req.session.username,
                 post: result,
                 commentList: commentList
             }
@@ -52,8 +52,8 @@ const postController = {
 
         if (result != null) {
             var data = {
-                isLoggedIn: true,//req.body.isLoggedIn,
-                username: `foobar`,//req.body.username,
+                isLoggedIn: req.session.isLoggedIn,
+                username: req.session.username,
                 post: result
             }
             

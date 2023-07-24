@@ -30,8 +30,8 @@ const searchController = {
         }
 
         var data = {
-            isLoggedIn: true,//req.body.isLoggedIn,
-            username: `foobar`,//req.body.username,
+            isLoggedIn: req.session.isLoggedIn,
+            username: req.session.username,
             postList: postList
         }
 

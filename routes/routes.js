@@ -34,6 +34,7 @@ app.post(`/register`, validation.registerValidation(), registerController.postRe
 app.get('/getCheckUsername', registerController.getCheckUsername);
 
 app.get('/getCheckEmail', registerController.getCheckEmail);
+app.get('/logout', loginController.getLogOut);
 app.get('/login', loginController.getLogIn);
 app.post('/login', loginController.postLogIn);
 

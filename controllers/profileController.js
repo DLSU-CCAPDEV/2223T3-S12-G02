@@ -14,8 +14,8 @@ const profileController = {
         postList.sort((a, b) => b.postID - a.postID);
 
         var data = {
-        	isLoggedIn: true, //req.body.isLoggedIn,
-        	userName: `foobar`, //req.body.userName,
+        	isLoggedIn: req.session.isLoggedIn,
+            username: req.session.username,
         	userBio: `Its Joever.`, //req.body.userBio,
         	postList: postList
         }

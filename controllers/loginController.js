@@ -4,15 +4,11 @@ const User = require('../models/UserModel.js');
 const loginController = {
     getLogIn: function (req, res) {
 
-        if (req.body.isLoggedIn) {
+        if (req.session.isLoggedIn) {
             res.redirect('/home');
         }
-
         else {
-            var data = {
-                isLoggedIn: false
-            };
-            res.render('login', data);
+            res.render('login');
         }
     },
     postLogIn: async function (req, res) {
@@ -20,15 +16,22 @@ const loginController = {
 
         if (result != null) {
             // Do session stuff here
+            req.session.username = req.body.username;
+            req.session.isLoggedIn = true;
             res.redirect(`home`);
         }
         else {
             var details = {
-                isLoggedIn: false,
                 error: `Username and/or Password is incorrect.`
             };
             res.render('login', details);
         }
+    },
+    getLogOut: function (req, res) {
+
+        req.session.destroy();
+        res.redirect(`login`);
+
     }
 }
 
