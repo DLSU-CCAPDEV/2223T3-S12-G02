@@ -114,7 +114,22 @@ function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 	});
 
     deleteButton.on('click', function() {
-        deleteButton.closest('.post.row').remove();
+		if (confirm(`Do you really want to delete this post?`) == true) {
+			$.ajax({
+				type: 'POST',
+				url: '/delete-post',
+				data: {
+					postId: postID
+				},
+				success: function (response) {
+					alert(`Post successfully deleted! Redirecting page...`);
+					location.href = "/";
+				},
+				error: function (xhr, status, error) {
+					console.error('Error deleting post:', error);
+				}
+			});
+		}
     });
 
 };

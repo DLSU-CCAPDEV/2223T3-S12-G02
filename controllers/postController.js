@@ -17,6 +17,8 @@ const postController = {
 
         if (result != null) {
             var data = {
+                isLoggedIn: true,//req.body.isLoggedIn,
+                username: `foobar`,//req.body.username,
                 post: result,
                 commentList: commentList
             }
@@ -25,6 +27,18 @@ const postController = {
         }
         else {
             res.redirect(`/`);
+        }
+    },
+
+    deletePost: async function(req, res) {
+
+        var query = {postID: req.body.postId};
+
+        if ( await db.deleteOne(Post, query) != null) {
+            res.json({deletion: true});
+        }
+        else {
+            console.log(`Error: Cannot delete post`);
         }
     }
 

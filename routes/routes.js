@@ -18,6 +18,7 @@ app.post(`/submitPost`, homeController.submitPost);
 app.get(`/post/:pID`, postController.getPost);
 app.post(`/post/:pID`, commentController.submitComment);
 app.post(`/update-vote`, voteController.updatePostVote);
+app.post(`/delete-post`, postController.deletePost);
 
 app.get(`/home_logged`, controller.getRoot);
 
