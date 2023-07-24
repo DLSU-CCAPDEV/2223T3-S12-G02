@@ -41,7 +41,7 @@ function createCommentElement(commentID, author, content, likes) {
 
     var author = $('<div>', {
         class: 'author',
-        text: author
+        text: '@' + author
     });
 
     var tools = $('<div>', {
@@ -93,24 +93,6 @@ function pPostComment(author) {
 
   createCommentElement(author, content);
 }
-
-/*
-// Saves the comment to the database using the insertOne (from db.js)
-const commentData = {
-commentID: commentId,
-commentContent: content,
-commentAuthor: author,
-  // commentLikes: 0,
-};
-
-db.insertOne(Comment, commentData, (err, insertedComment) => {
-  if (err) {
-    console.error('Error saving comment:', err.message);
-  } else {
-    console.log('Comment saved:', insertedComment);
-  }
-});
-*/
 
 
 

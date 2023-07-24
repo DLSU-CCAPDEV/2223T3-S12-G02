@@ -9,27 +9,17 @@
 	<script src="../js/comment.js"></script>
 	<script>
 		$(document).ready(function () {
-			//$('#pSubmit').on('click', pPostComment);
-
 			createPost({{post.postID}}, `{{post.postTitle}}`, `{{post.postContent}}`, `{{post.postAuthor}}`, {{post.postLikes}});
-			{{#each commentList}}
-			createCommentElement({{commentID}}, `{{commentAuthor}}`, `{{commentContent}}`, {{commentLikes}});
-			{{/each}}
-
 		});
 	</script>
 	<style>
-		.post_form form textarea {
-			border-radius: 10px;
-			margin-top: 1rem;
+		.post.row .rating_bar {
+			display: none
 		}
 
-		{{#ifnoteq username post.postAuthor}}
-		header .post.row .tools {
-			display: none;
+		.tools {
+			display: none
 		}
-		{{/ifnoteq}}
-
 	</style>
 	<title>ThreadTalk.™ — Speak your mind</title>
 </head>
@@ -39,9 +29,10 @@
 		<div class="post_container">
 		</div>
 		<div class="post_form">
-			<form method="post" action="{{post.postID}}">
-				<textarea name="pComment" id="pComment" placeholder="Comment on this Thread" required></textarea>
-				<input type="submit" name="pSubmit" id="pSubmit" value="Comment">
+			<form method="post" action="/edit-post/{{post.postID}}">
+				<input type="text" name="pTitle" id="pTitle" placeholder="Thread Title">
+				<textarea name="pContent" id="pContent" placeholder="Write a Thread"></textarea>
+				<input type="submit" name="pSubmit" id="pSubmit" value="Edit Post">
 			</form>
 		</div>
 	</header>

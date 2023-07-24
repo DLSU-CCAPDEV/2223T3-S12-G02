@@ -62,19 +62,19 @@ function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 	// Create the title element
 	var title = $('<div>', {
 		class: 'title',
-		text: pTitle
+		html: pTitle
 	});
 
 	// Create the preview element
 	var preview = $('<div>', {
 		class: 'preview',
-		text: pContent
+		html: pContent
 	});
 
 	text.append(title, preview);
 
 	var author = $('<a>', {
-		href: 'profile.html'
+		href: '/profile/' + pAuthor
 	});
 
 	author.append($('<div>', {
@@ -111,6 +111,11 @@ function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 
 	downvoteButton.on('click', function() {
 		vote(postID, -1);
+	});
+
+	//TODO: this is not a safe implementation
+	editButton.on('click', function() {
+		location.href = "/edit-post/" + postID;
 	});
 
     deleteButton.on('click', function() {

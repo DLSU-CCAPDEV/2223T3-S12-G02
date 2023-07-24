@@ -18,6 +18,8 @@ app.post(`/submitPost`, homeController.submitPost);
 app.get(`/post/:pID`, postController.getPost);
 app.post(`/post/:pID`, commentController.submitComment);
 app.post(`/update-vote`, voteController.updatePostVote);
+app.get(`/edit-post/:pID`, postController.getEditor);
+app.post(`/edit-post/:pID`, postController.updatePost);
 app.post(`/delete-post`, postController.deletePost);
 
 app.get(`/home_logged`, controller.getRoot);
@@ -34,14 +36,6 @@ app.get(`/profile`, controller.getProfile);
 
 app.get(`/profile/:userName`, profileController.getPosts); 
 
-/* // Reference from original code //
-
-app.get(`/`, controller.getRoot);
-app.get(`/login`, controller.redirectRoot);
-
-app.post(`/checkAcct`, controller.checkAcct);
-
-*/
 app.post('/comments/:commentId/likes', commentController.updateCommentLikes);
 app.delete('/comments/:commentId', commentController.deleteComment);
 

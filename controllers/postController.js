@@ -40,8 +40,34 @@ const postController = {
         else {
             console.log(`Error: Cannot delete post`);
         }
-    }
+    },
 
+    getEditor: async function(req, res) {
+
+        var query = {postID: req.params.pID};
+
+        var projection = `postID postTitle postContent postAuthor postLikes`;
+
+        var result =  await db.findOne(Post, query, projection);
+
+        if (result != null) {
+            var data = {
+                isLoggedIn: true,//req.body.isLoggedIn,
+                username: `foobar`,//req.body.username,
+                post: result
+            }
+            
+            res.render(`post_edit`, data);
+        }
+
+    },
+
+    updatePost: async function(req, res) {
+        var query = {postID: req.params.pID};
+
+        await db.updateOne(Post, query, {postTitle: req.body.pTitle, postContent: req.body.pContent});
+        res.redirect(`/post/` + req.params.pID);
+    }
 }
 
 module.exports = postController;
