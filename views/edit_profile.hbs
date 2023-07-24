@@ -6,10 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
 	<script>
-		function changeImage(){
-			var img = document.getElementById("pfp");
-			img.src = "logo/blue_icon.png"
-		}
+		
 	</script>
 	<title>Edit User Profile</title>
 </head>
@@ -18,23 +15,22 @@
 	<div class="editor_body">
 		<div class="editors">
 			<div class="account_editor"> 
+				<form action="/edit_profile" method="post">
+				<!-- TODO: Make values match current profile -->
 				<h1> User Info </h1>
 				<h2> Username </h2>
-				<input type="text" class="profile_input" value="Steeve">
+				<input type="text" name="userName" class="profile_input" value="Steeve">
+				<h2> Email</h2>
+				<input type="text" name="userEmail" class="profile_input" value="steeve@gmail.com">
 				<h2> Password </h2> 
-				<input type="password" class="profile_input" value="password">
-			</div>
-
-			<div class="account_editor"> 
-				<h1> Account Info </h1>
-				<h2> Profile Picture </h2>
-				<img src="logo/temppfp.jpg" class="pfp" id="pfp">
-				<button onclick="changeImage()" class="change_image_button"> Change Image </button>
+				<input type="password" name="pw" class="profile_input" value="password">
 				<h2> Description </h2> 
-				<textarea class="description_input" value="New to this forum, say hello!" placeholder="Add a description"></textarea>
+				<textarea class="description_input" name="userBio" value="New to this forum, say hello!" placeholder="Add a description"></textarea>
+				<input type="submit" name="saveChanges" class="save_button" value="Save">
+
+				</form>
 			</div>
 		</div>
-		<button class="save_button">Save</button>
 	</div>
 
 	<footer>Threads™ 2023</footer>
