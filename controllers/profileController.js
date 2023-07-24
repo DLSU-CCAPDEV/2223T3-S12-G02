@@ -14,15 +14,15 @@ const profileController = {
         postList.sort((a, b) => b.postID - a.postID);
 
         var data = {
-        	isLoggedIn: true,
-        	userName: req.body.userName,
-        	userBio: req.body.userBio,
+        	isLoggedIn: true, //req.body.isLoggedIn,
+        	userName: `foobar`, //req.body.userName,
+        	userBio: `Its Joever.`, //req.body.userBio,
         	postList: postList
         }
         
         res.render('profile', data);
     }
 
-}
+};
 
 module.exports = profileController;
