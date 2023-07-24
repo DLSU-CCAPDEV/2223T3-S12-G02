@@ -35,7 +35,7 @@ app.get('/getCheckUsername', registerController.getCheckUsername);
 
 app.get('/getCheckEmail', registerController.getCheckEmail);
 app.get('/login', loginController.getLogIn);
-app.post('/userLogin', loginController.postLogIn);
+app.post('/login', loginController.postLogIn);
 
 app.get(`/profile`, controller.getProfile);
 
