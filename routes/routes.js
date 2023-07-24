@@ -11,7 +11,7 @@ const profileController = require('../controllers/profileController.js');
 const registerController = require('../controllers/registerController.js');
 const validation = require('../helpers/validation.js');
 const loginController = require('../controllers/loginController.js');
-const editProfileController = require('../controllers/editProfileController.js');
+const editProfileController = require('../controllers/editProfileContoller.js');
 
 const app = express();
 

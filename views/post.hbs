@@ -9,11 +9,9 @@
 	<script src="../js/comment.js"></script>
 	<script>
 		$(document).ready(function () {
-			//$('#pSubmit').on('click', pPostComment);
-
 			createPost({{post.postID}}, `{{post.postTitle}}`, `{{post.postContent}}`, `{{post.postAuthor}}`, {{post.postLikes}});
 			{{#each commentList}}
-			createCommentElement({{commentID}}, `{{commentAuthor}}`, `{{commentContent}}`, {{commentLikes}});
+			createCommentElement({{commentID}}, `{{commentAuthor}}`, `{{commentContent}}`, {{commentLikes}}, {{#ifnoteq commentAuthor ../session.username}}false{{else}}true{{/ifnoteq}});
 			{{/each}}
 
 		});
@@ -24,12 +22,11 @@
 			margin-top: 1rem;
 		}
 
-		{{#ifnoteq username post.postAuthor}}
-		header .post.row .tools {
+		{{#ifnoteq session.username post.postAuthor}}
+		header .tools {
 			display: none;
 		}
 		{{/ifnoteq}}
-
 	</style>
 	<title>ThreadTalk.™ — Speak your mind</title>
 </head>

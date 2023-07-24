@@ -1,9 +1,9 @@
-function createCommentElement(commentID, author, content, likes) {
+function createCommentElement(commentID, author, content, likes, editable=false) {
 
     // Create comment element
     var comment = $('<div>', {
         class: 'comment row',
-        id: commentID
+        id: 'comment-' + commentID
     });
 
     var ratingBar = $('<div>', {
@@ -60,7 +60,12 @@ function createCommentElement(commentID, author, content, likes) {
 
     tools.append(editButton, deleteButton);
 
-    info.append(text, author, tools);
+    if (editable) {
+        info.append(text, author, tools);
+    }
+    else {
+        info.append(text, author);
+    }
 
     comment.append(ratingBar, info);
 

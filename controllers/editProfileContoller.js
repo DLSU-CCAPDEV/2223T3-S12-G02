@@ -1,7 +1,7 @@
 const db = require(`../models/db.js`);
 const User = require(`../models/UserModel.js`);
 
-const editProfileController {
+const editProfileController = {
 	getProfile: async function(req, res) {
 
 		var query = {userName: req.session.username};

@@ -6,7 +6,7 @@ function createPost(postID, pTitle, pContent, pAuthor, postLikes) {
 	// Create the post row element
 	var postRow = $('<div>', {
 		class: 'post row',
-		id: postID
+		id: 'post-' + postID
 	});
 	  
 	// Create the rating bar element
