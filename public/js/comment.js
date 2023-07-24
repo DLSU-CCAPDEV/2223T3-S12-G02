@@ -80,15 +80,21 @@ function createCommentElement(commentID, author, content, likes, editable=false)
     });
     
     deleteButton.on('click', function() {
-      //  deleteButton.closest('.comment.row').remove();
-        db.deleteOne('comments', { _id: commentID }, (err, deletedComment) => {
-      if (err) {
-        console.error('Error deleting comment:', err.message);
-      } else {
-        console.log('Comment deleted:', deletedComment);
-        comment.remove();
-      }
-    });
+		if (confirm(`Do you really want to delete this comment?`) == true) {
+			$.ajax({
+				type: 'POST',
+				url: '/delete-comment',
+				data: {
+					commentID: commentID
+				},
+				success: function (response) {
+                    comment.remove();
+				},
+				error: function (xhr, status, error) {
+					console.error('Error deleting post:', error);
+				}
+			});
+		}
     });
 }
 

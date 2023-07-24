@@ -25,6 +25,7 @@ app.post(`/update-vote`, voteController.updatePostVote);
 app.get(`/edit-post/:pID`, postController.getEditor);
 app.post(`/edit-post/:pID`, postController.updatePost);
 app.post(`/delete-post`, postController.deletePost);
+app.post(`/delete-comment`, commentController.deleteComment);
 
 app.get(`/home_logged`, controller.getRoot);
 

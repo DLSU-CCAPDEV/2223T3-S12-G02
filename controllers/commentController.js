@@ -31,8 +31,8 @@ const commentController = {
 
   
   deleteComment: async function (req, res) {
-    const commentId = req.body.commentId;
-    const query = { commentID: commentId };
+    const commentID = req.body.commentID;
+    const query = { commentID: commentID };
     await db.deleteOne(Comment, query);
     res.json({ message: 'Comment deleted successfully' });
   },
