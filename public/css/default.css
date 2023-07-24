@@ -93,12 +93,12 @@ content {
     flex-grow: 1;
 }
 
-.post_form {
+header .post_form {
 	padding: 1rem;
 	flex-grow: 1;
 }
 
-.post_form form {
+header .post_form form {
 	width: 100%;
 	display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@ content {
     justify-content: center;
 }
 
-.post_form form input[type="text"] {
+header .post_form form input[type="text"] {
 	display: block;
 	width: 80%;
 	padding: 0.5rem;
@@ -116,11 +116,11 @@ content {
 	font-weight: 300;
 }
 
-.post_form form input[type="text"]:focus {
+header .post_form form input[type="text"]:focus {
 	outline: none;
 }
 
-.post_form form textarea {
+header .post_form form textarea {
 	display: block;
 	width: 80%;
 	min-height: 5rem;
@@ -151,6 +151,42 @@ content {
 .post_form form input#pSubmit:hover {
 	background-color: var(--darktertiary);
 } 
+
+.comment.row .post_form textarea
+{
+    padding: 0;
+    width: 100%;
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    background-color: var(--lightaccent);
+    border-radius: 10px;
+    min-height: 3rem;
+    padding: 1rem;
+    resize: vertical;
+
+}
+
+.post_form form input#eSubmit {
+    font-family: 'Open Sans', sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 700;
+    padding: .25rem 1.5rem;
+    color: white;
+    background-color: var(--tertiary);
+    cursor: pointer;
+}
+
+.post_form form input#eSubmit:hover {
+	background-color: var(--darktertiary);
+} 
+
+.comment.row .post_form form {
+	display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
 
 .post.row {
 	display: flex;

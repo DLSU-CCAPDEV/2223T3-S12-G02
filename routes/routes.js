@@ -26,6 +26,8 @@ app.get(`/edit-post/:pID`, postController.getEditor);
 app.post(`/edit-post/:pID`, postController.updatePost);
 app.post(`/delete-post`, postController.deletePost);
 app.post(`/delete-comment`, commentController.deleteComment);
+app.post(`/post/:pID/edit-comment/:cID`, commentController.updateComment);
+
 
 app.get(`/home_logged`, controller.getRoot);
 
@@ -43,9 +45,6 @@ app.post('/login', loginController.postLogIn);
 app.get(`/profile`, controller.getProfile);
 
 app.get(`/profile/:userName`, profileController.getPosts); 
-
-app.post('/comments/:commentId/likes', commentController.updateCommentLikes);
-app.delete('/comments/:commentId', commentController.deleteComment);
 
 
 module.exports = app;

@@ -1,4 +1,4 @@
-function createCommentElement(commentID, author, content, likes, editable=false) {
+function createCommentElement(postID, commentID, author, content, likes, editable=false) {
 
     // Create comment element
     var comment = $('<div>', {
@@ -58,10 +58,37 @@ function createCommentElement(commentID, author, content, likes, editable=false)
         text: 'Delete'
     });
 
+    var editDiv = $('<div>', {
+        class: 'post_form',
+        hidden: true
+    });
+
+    var editForm = $('<form>', {
+        method: 'post',
+        action: '/post/' + postID + '/edit-comment/' + commentID
+    });
+
+    var textArea = $('<textarea>',  {
+        name: 'eComment',
+        id: 'eComment',
+        html: content
+    });
+
+    var submitEdit = $('<input>', {
+        type: 'submit',
+        name: 'eSubmit',
+        id: 'eSubmit',
+        value: 'Edit'
+    });
+
+    editForm.append(textArea, submitEdit);
+
+    editDiv.append(editForm);
+
     tools.append(editButton, deleteButton);
 
     if (editable) {
-        info.append(text, author, tools);
+        info.append(text, editDiv, author, tools);
     }
     else {
         info.append(text, author);
@@ -77,6 +104,10 @@ function createCommentElement(commentID, author, content, likes, editable=false)
 
     downvoteButton.on('click', function() {
         vote(commentID, -1);
+    });
+
+    editButton.on('click', function() {
+        $(this).closest('.info').find('.text, .post_form').toggle();
     });
     
     deleteButton.on('click', function() {

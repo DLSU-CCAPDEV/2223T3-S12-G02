@@ -20,15 +20,12 @@ const commentController = {
     res.redirect(`/post/`+ pID);
   },
 
-  // Method to update comment likes
-  updateCommentLikes: async function (req, res) {
-    const commentId = req.body.commentId;
-    const value = req.body.value;
-    const query = { commentID: commentId };
-    await db.updateOne(Comment, query, { commentLikes: value });
-    res.json({ updatedCount: value });
+  updateComment: async function(req, res) {
+    var query = {commentID: req.params.cID};
+    await db.updateOne(Comment, query, {commentContent: req.body.eComment});
+    console.log(`/post/` + req.params.cID);
+    res.redirect(`/post/` + req.params.pID);
   },
-
   
   deleteComment: async function (req, res) {
     const commentID = req.body.commentID;

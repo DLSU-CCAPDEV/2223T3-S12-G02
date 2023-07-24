@@ -11,13 +11,13 @@
 		$(document).ready(function () {
 			createPost({{post.postID}}, `{{post.postTitle}}`, `{{post.postContent}}`, `{{post.postAuthor}}`, {{post.postLikes}});
 			{{#each commentList}}
-			createCommentElement({{commentID}}, `{{commentAuthor}}`, `{{commentContent}}`, {{commentLikes}}, {{#ifnoteq commentAuthor ../session.username}}false{{else}}true{{/ifnoteq}});
+			createCommentElement({{../post.postID}}, {{commentID}}, `{{commentAuthor}}`, `{{commentContent}}`, {{commentLikes}}, {{#ifnoteq commentAuthor ../session.username}}false{{else}}true{{/ifnoteq}});
 			{{/each}}
 
 		});
 	</script>
 	<style>
-		.post_form form textarea {
+		header .post_form form textarea {
 			border-radius: 10px;
 			margin-top: 1rem;
 		}

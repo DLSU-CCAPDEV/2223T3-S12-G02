@@ -15,19 +15,14 @@ const postController = {
         var commentList = await db.findMany(Comment, query, commentprojection);
         commentList.sort((a, b) => b.commentID - a.commentID);
 
-        if (result != null) {
-            var data = {
-                isLoggedIn: req.session.isLoggedIn,
-                username: req.session.username,
-                post: result,
-                commentList: commentList
-            }
+        var data = {
+            isLoggedIn: req.session.isLoggedIn,
+            username: req.session.username,
+            post: result,
+            commentList: commentList
+        }
             
-            res.render(`post`, data);
-        }
-        else {
-            res.redirect(`/`);
-        }
+        res.render(`post`, data);
     },
 
     deletePost: async function(req, res) {
