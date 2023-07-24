@@ -3,6 +3,9 @@
 
 <head>
   <title>ThreadTalk</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../js/validator.min.js" type="text/javascript"></script>
+  <script src="../js/register.js" type="text/javascript"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/login_register.css">
 </head>
@@ -13,25 +16,34 @@
     <div class="picture"><img src="../logo/blue_logo.png" alt="logo"></div>
     <div class="login_container">
       <div class="icon"><img src="../logo/blue_logo.png" alt="icon"></div>
-      <form method="post">
+
+      <form id="register" method="post">
         <h2>Create an account</h2>
         <label for="username">Username</label><br>
         <input type="text" id="username" name="username" required><br>
+        <p id="usernameErr" class="error"> {{usernameErr}} </p>
+
+        <label for="email">Email</label><br>
+        <input type="text" id="email" name="email" required><br>
+        <p id="emailErr" class="error"> {{emailErr}} </p>
 
         <label for="userpass">Password</label><br>
         <input type="password" id="userpass" name="userpass" required><br>
+        <p id="passwordErr" class="error"> {{passwordErr}} </p>
 
         <label for="confirmpass">Confirm Password</label><br>
         <input type="password" id="confirmpass" name="confirmpass" required><br>
+        <p id="conPasswordErr" class="error"> {{conPasswordErr}} </p>
 
         <label for="accept">
           <input type="checkbox" id="accept" required>
           I accept User Agreement and Privacy Policy.
         </label>
-
-        <input type="submit" value="Sign up">
+        <p id="error" class="error"></p>
+        <input type="submit" id="submit" value="Sign up" disabled>
         <p>Already have an account? <a href="login" target="_self">Sign in</a></p>
       </form>
+
     </div>
   </div>
 </body>
