@@ -64,7 +64,7 @@ app.use(bodyParser.urlencoded( {extended: false} ))
 app.use(`/`, routes);
 
 // Server response for confirmation
-app.listen(port, hostname, function() {
+app.listen(port, function() {
     console.log(`Server running at: `);
     console.log(`http://` + hostname + `:` + port);
 });
