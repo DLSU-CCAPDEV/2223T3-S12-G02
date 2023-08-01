@@ -20,10 +20,20 @@ const searchController = {
                 ]
             }
 
+
+              var commentQuery = {
+                $or: [
+                  { commentContent: { $regex: regex } },
+                  { commentAuthor: { $regex: regex } },
+                ],
+              };
+
+
             var projection = `postID postTitle postContent postAuthor postLikes`;
 
             // Retrieve the postList without sorting
             var postList = await db.findMany(Post, query, projection);
+           // var commentList = await db.findMany(Comment, commentQuery);
 
             // Sort the postList in descending order based on the createdAt field (newest posts first)
             postList.sort((a, b) => b.postID - a.postID);
