@@ -442,6 +442,7 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    width: 60%;
 }
 
 .user_editor {
@@ -460,7 +461,7 @@ footer {
 
 .account_editor {
 	background-color: var(--lightaccent);
-    width: 90%;
+    width: 100%;
     padding: 1rem 4rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -490,6 +491,7 @@ footer {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+	width: 100%;
 }
 
 .save_button {
@@ -530,6 +532,8 @@ footer {
 	border: none;
 	border-radius: 10px;
 	padding: 0.75rem;
+	width: 80%;
+	font-size: 1rem;
 }
 
 .description_input {
@@ -540,6 +544,7 @@ footer {
     font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
     resize: vertical;
+	width: 80%;
 }
 
 .comment.row {
