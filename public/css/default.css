@@ -20,16 +20,25 @@ a {
 body {
 	margin: 0;
     min-height: 100vh;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 nav {
 	top: 0;
 	left: 0;
 	position: sticky;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	background-color: var(--primary);
 	color: #FFF;
 	position: sticky;
@@ -47,25 +56,40 @@ nav .logo {
 }
 
 nav ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	justify-content: flex-end;
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
 }
 
 nav ul li {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 	padding: 0 .75rem;
 	margin: 0;
 	height: inherit;
 }
 
 nav ul a {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	color: #FFF;
 	text-decoration: none;
 	cursor: pointer;
@@ -78,32 +102,61 @@ nav ul li:hover {
 
 header {
     background-color: var(--lightaccent);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 content {
     background-color: #ffffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    flex-direction: column;
-    flex-grow: 1;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 }
 
 header .post_form {
 	padding: 1rem;
-	flex-grow: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 }
 
 header .post_form form {
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 header .post_form form input[type="text"] {
@@ -183,31 +236,54 @@ header .post_form form textarea {
 } 
 
 .comment.row .post_form form {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 .post.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin: 0 11rem;
 	padding: 1.5rem 1.5rem;
 	border-top: 1px solid var(--accent);
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .post.row .rating_bar {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin-left: 0.75rem;
-	flex-direction: column;
-	justify-content: center;
-    align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     cursor: default;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .post.row .img {
-	flex-shrink: 0;
+	-ms-flex-negative: 0;
+	    flex-shrink: 0;
 	background-color: lightgrey;
 	margin-left: 0.75rem;
 	width: 6rem;
@@ -218,7 +294,9 @@ header .post_form form textarea {
 .post.row .info {
 	margin-left: 0.75rem;
 	padding: 0 1rem;
-	flex-grow: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 }
 
 .post.row a {
@@ -226,8 +304,13 @@ header .post_form form textarea {
 }
 
 .post.row .info .text {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
 	display: inline-flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .post.row .info .title {
@@ -244,6 +327,7 @@ header .post_form form textarea {
 .post.row .info .author {
 	color: #0099ff;
 	cursor: pointer;
+	width: -webkit-fit-content;
 	width: fit-content;
 	width: -moz-fit-content;
 }
@@ -273,10 +357,16 @@ header .post_form form textarea {
 footer {
     background-color: #f4f4f4;
     height: 5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-content: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 /* profile page css */
@@ -287,6 +377,8 @@ footer {
 
 .profile-editor {
 	background-color: var(--lightbody);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin-left: 250px;
 	margin-right: 250px;
@@ -303,13 +395,23 @@ footer {
 	padding-right: 20px;
 	padding-bottom: 20px;
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .username-box {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: row;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 	height: 60px;
 }
 
@@ -337,6 +439,8 @@ footer {
 }
 
 .editors {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -345,26 +449,47 @@ footer {
 	width: 540px;
 	height: 600px;
 	margin: 10px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
 .account_editor {
 	background-color: var(--lightaccent);
     width: 90%;
     padding: 1rem 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-radius: 20px;
     margin: 1.25rem;
 }
 
 .account_editor form {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .save_button {
@@ -389,9 +514,16 @@ footer {
 
 .editor_body {
 	background-color: var(--accent);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 .profile_input {
@@ -411,27 +543,45 @@ footer {
 }
 
 .comment.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin: 0 10rem;
 	padding: 1.5rem 1.5rem;
 	border-top: 1px solid var(--accent);
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .comment.row .rating_bar {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	margin-left: 0.75rem;
-	flex-direction: column;
-	justify-content: center;
-    align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     cursor: default;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .comment.row .info {
 	margin-left: 0.75rem;
 	padding: 0 1rem;
-	flex-grow: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 }
 
 .post.row .info .preview {
@@ -446,6 +596,7 @@ footer {
 .comment.row .info .author {
 	color: #0099ff;
 	cursor: pointer;
+	width: -webkit-fit-content;
 	width: fit-content;
 	width: -moz-fit-content;
 }

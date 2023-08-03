@@ -1,6 +1,9 @@
 const db = require(`../models/db.js`);
 const User = require(`../models/UserModel.js`);
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const editProfileController = {
 	getProfile: async function(req, res) {
 
@@ -9,10 +12,9 @@ const editProfileController = {
 		var profile = await db.findOne(User, query, projection);
 
 		var data = {
-			userName: req.session.username,
+			userName: profile.userName,
 			userEmail: profile.userEmail,
-			userBio: profile.userBio,
-			pw: profile.pw
+			userBio: profile.userBio
 		}
 
 		res.render('edit_profile', data);
@@ -20,9 +22,31 @@ const editProfileController = {
 
 	updateProfile: async function(req, res) {
 		var query = {userName: req.session.username};
+		var pw = req.body.pw
 
-	        await db.updateOne(User, query, {userName: req.body.userName, userEmail: req.body.userEmail, userBio: req.body.userBio});
-	        res.redirect(`/profile/` + req.body.userName);
+		// If password is specified
+		if(pw)
+		{
+			bcrypt.hash(pw, saltRounds, function(err, hash) {
+				var data = {
+					userName: req.body.userName, 
+					userEmail: req.body.userEmail, 
+					userBio: req.body.userBio,
+					pw: hash
+				}
+				db.updateOne(User, query, data);
+			});
+		}
+		else
+		{
+			var data = {
+				userName: req.body.userName, 
+				userEmail: req.body.userEmail, 
+				userBio: req.body.userBio
+			}
+			db.updateOne(User, query, data);
+		}
+		res.redirect(`/profile/` + req.body.userName);
 	}	
 };
 

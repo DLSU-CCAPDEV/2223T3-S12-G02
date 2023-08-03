@@ -4,7 +4,7 @@ $(document).ready(function () {
         var userName = validator.trim($('#username').val());
         var userpass = validator.trim($('#userpass').val());
 
-        $.post('/userLogin', { userName: userName }, '')
+        $.post('/login', { userName: userName, userpass: userpass }, '')
 
     });
 });
