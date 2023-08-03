@@ -2,6 +2,9 @@ const { validationResult } = require('express-validator');
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const registerController = {
     getRegister: function (req, res) {
         res.render('register');
@@ -25,19 +28,23 @@ const registerController = {
             var userName = req.body.username;
             var email = req.body.email;
             var userpass = req.body.userpass;
-            var user = {
-                userName: userName,
-                userEmail: email,
-                pw: userpass
-            }
-            var response = await db.insertOne(User, user);
 
-            if (response != null) {
-                res.redirect('/login');
-            }
-            else {
-                res.render('error');
-            }
+            
+            bcrypt.hash(userpass, saltRounds, function(err, hash) {
+                var user = {
+                    userName: userName,
+                    userEmail: email,
+                    pw: hash
+                }
+                var response = db.insertOne(User, user);
+    
+                if (response != null) {
+                    res.redirect('/login');
+                }
+                else {
+                    res.render('error');
+                }
+            });            
         };
 
     },

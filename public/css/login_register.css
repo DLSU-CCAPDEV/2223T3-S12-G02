@@ -7,17 +7,24 @@ body {
 }
 
 a.icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: sticky;
   margin-top: 70px;
   font-size: 35px;
   opacity: 0.6;
   padding-top: 5px;
+  -webkit-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
   transition: 0.2s linear;
   color: white;
   text-decoration: none;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 a.icon:hover {
@@ -28,23 +35,31 @@ a.icon:hover {
 
 .container {
   font-family: Arial, sans-serif;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  width: 100%;
+  display: flex;
   height: 70vh;
 }
 
+
+
 .login_container {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   width: 350px;
   padding: 20px;
   border-radius: 8px;
   background-color: white;
+  -webkit-transition: 0.1s linear;
+  -o-transition: 0.1s linear;
   transition: 0.1s linear;
 }
 
 .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: auto;
   height: 45px;
@@ -68,7 +83,8 @@ p {
   position: relative;
   padding: 10px;
   margin-bottom: 10px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 8px;
   border: 1px solid grey;
 }
@@ -117,6 +133,8 @@ p {
 
 @media (min-width: 900px) {
   .login_container {
+    -webkit-transition: 0.1s linear;
+    -o-transition: 0.1s linear;
     transition: 0.1s linear;
     margin-right: 15vw;
     margin-left: 60vw;
@@ -127,6 +145,8 @@ p {
   }
 
   .picture {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 20vw;
     padding-left: 20vw;
