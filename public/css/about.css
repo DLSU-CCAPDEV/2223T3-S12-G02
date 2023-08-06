@@ -1,0 +1,14 @@
+header {
+    padding: 2rem 0rem;
+    align-content: center
+  }
+  content {
+    align-content: center;
+    background-color: var(--accent);
+  }
+  content .container.about {
+    padding: 2rem 5rem;
+    margin: 1rem;
+    border-radius: 10px;
+    background-color: var(--lightaccent);
+  }

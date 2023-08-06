@@ -37,6 +37,10 @@ const homeController = {
         
         await db.insertOne(Post, doc);
         res.redirect(`/`);
+    },
+
+    getAbout : function(req, res) {
+        res.render(`about`);
     }
 
 };
