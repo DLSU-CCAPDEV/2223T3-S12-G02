@@ -5,16 +5,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
     <link rel="stylesheet" type="text/css" href="../css/about.css">
-    <title>About Threadtalk</title>
+    <link rel="icon" type="image/png" href="/logo/favicon/favicon-32x32.png"/>
+    <title>About ThreadTalk</title>
 </head>
 <body>
     {{> navbar}}
-    <header><h1>About Threadtalk</h1></header>
+    <header><h1>About ThreadTalk</h1></header>
     <content>
         <div class="about container">
-            <p>
-                Thread Talk is a web forum where users can post short discussion threads and other users can comment on said threads.
-            </p>
+            <h1>Threadtalk</h1>
+            <p>Thread Talk is a web forum where users can post short discussion threads and other users can comment on said threads.</p>
+            
+            <h2>Features</h2>
+            <ul>
+                <li>Deployed in <a href="https://threadtalk.onrender.com">threadtalk.onrender.com</a></li>
+                <li>Express app with MongoDB for database management</li>
+                <li>User registration and login</li>
+                <li>User details editing</li>
+                <li>User post history under profile tab</li>
+                <li>Hashed passwords using bcrypt</li>
+                <li>Posts with voting system</li>
+                <li>Comments with voting system</li>
+                <li>Search system that can search for post title, content, or author</li>
+            </ul>
+            
             <h2>Developers:</h2>
             <ul>
                 <li>Coo, Hans</li>
@@ -22,6 +36,7 @@
                 <li>Fuentespina, Aian</li>
                 <li>Srivastava, Naman</li>
             </ul>
+            
             <h2>Dependencies:</h2>
             <ul>
                 <li>bcrypt</li>
