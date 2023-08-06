@@ -157,25 +157,30 @@ function vote(postId, value) {
             value: newCount
         },
         success: function (response) {
-			// Check if the user has already voted on this post
-			if (currentVote === value) {
-				// User clicked on the same vote, remove the vote
-				delete votedPosts[postId];
-				value = 0;
-				upvoteButton.removeClass('selected-upvote');
-				downvoteButton.removeClass('selected-downvote');
-			} else {
-				votedPosts[postId] = value;
-				if (value == 1) {
-					upvoteButton.addClass('selected-upvote')
-					downvoteButton.removeClass('selected-downvote');
-				}
-				else if (value == -1){
+			if (response.isLoggedIn) {
+				// Check if the user has already voted on this post
+				if (currentVote === value) {
+					// User clicked on the same vote, remove the vote
+					delete votedPosts[postId];
+					value = 0;
 					upvoteButton.removeClass('selected-upvote');
-					downvoteButton.addClass('selected-downvote')
+					downvoteButton.removeClass('selected-downvote');
+				} else {
+					votedPosts[postId] = value;
+					if (value == 1) {
+						upvoteButton.addClass('selected-upvote')
+						downvoteButton.removeClass('selected-downvote');
+					}
+					else if (value == -1){
+						upvoteButton.removeClass('selected-upvote');
+						downvoteButton.addClass('selected-downvote')
+					}
 				}
+				counter.text(newCount);
+			} else {
+				alert("You must be logged in to vote.");
 			}
-			counter.text(newCount);
+			
         },
         error: function (xhr, status, error) {
             console.error('Error updating vote:', error);

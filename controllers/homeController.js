@@ -41,6 +41,10 @@ const homeController = {
 
     getAbout : function(req, res) {
         res.render(`about`);
+    },
+
+    getFavicon : function(req, res) {
+        res.redirect(`/logo/favicon/favicon.ico`);
     }
 
 };
